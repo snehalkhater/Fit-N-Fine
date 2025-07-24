@@ -75,3 +75,57 @@ ul.nav-links li a:hover {
     color: #4c346b;
 
 }
+
+/*card section*/
+ .card-section {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 50px 60px;
+      background-color: #f4f4f4;
+    }
+
+    .card {
+      background-color: white;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      flex: 1;
+      padding: 20px;
+      text-align: center;
+      transition: transform 0.3s;
+    }
+
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 12px;
+    }
+
+    .card h3 {
+      margin: 15px 0 10px;
+      color: #4c346b;
+    }
+
+    .card p {
+      color: #444;
+      margin-bottom: 15px;
+    }
+
+    .card-btn {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #4c346b;
+      color: white;
+      text-decoration: none;
+      border-radius: 20px;
+      transition: background 0.3s;
+    }
+
+    .card-btn:hover {
+      background-color: #3a2757;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
