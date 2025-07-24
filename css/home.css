@@ -73,7 +73,25 @@ ul.nav-links li a:hover {
 
 .btn:hover {
     color: #4c346b;
+}
 
+
+.info{
+    padding: 60px 20px;
+    text-align: center;
+}
+.info h2{
+    color: #4c346b;
+    font-size: 36px;
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+.info p{
+    max-width: 700px;
+    margin: 0 auto 30px;
+    font-size: 16px;
+    color: #444;
+    line-height: 1.6;
 }
 
 /*card section*/
