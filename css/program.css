@@ -108,7 +108,7 @@ body {
       position: relative;
       display: flex;
       align-items: center;
-      background-image: url('https://img.freepik.com/free-vector/abstract-watercolor-pastel-background_87374-139.jpg');
+      background-image: url('./../images/slider-bg.png');
       background-size: cover;
       background-position: center;
     }
