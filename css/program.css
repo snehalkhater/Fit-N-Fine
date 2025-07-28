@@ -1,0 +1,151 @@
+body {
+    padding: 0%;
+    margin: 30px;
+}
+
+.card-section {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 50px 60px;
+    background-color: #e0d0f5;
+}
+
+.fitness-card {
+    margin-left: 50px;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    flex: 1;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s;
+}
+.heading {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 28px;
+    color: #4c346b;
+}
+
+.heading p {
+    font-size: 20px;
+    color: #4c346b;
+    margin-top: 10px;
+    align-items: left;
+}
+
+.fitness-card img {
+    width: 270px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.fitness-card h3 {
+    margin: 15px 0 10px;
+    color: #4c346b;
+    font-size: 22px;
+}
+
+.fitness-card p {
+    color: #444;
+    margin-bottom: 15px;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.card-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #4c346b;
+    color: white;
+    text-decoration: none;
+    border-radius: 20px;
+    transition: background 0.3s;
+    font-weight: bold;
+}
+
+.card-btn:hover {
+    background-color: #3a2757;
+}
+
+.fitness-card:hover {
+    transform: translateY(-5px);
+}
+/* Responsive */
+@media (max-width: 768px) {
+    .card-section {
+        flex-direction: column;
+        align-items: center;
+        padding: 30px 20px;
+    }
+
+    .fitness-card {
+        margin-left: 0;
+        width: 90%;
+    }
+}
+
+/*meal section*/
+.meal-plan-section {
+    margin-top: 20px;
+    padding: 40px 60px;
+    background-color: #e0d0f5;
+    text-align: center;
+}
+
+.meal-heading {
+    font-size: 32px;
+    color: #4b287e;
+    margin-bottom: 30px;
+}
+
+.meal-card-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.meal-card {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.meal-card:hover {
+    transform: scale(1.05);
+}
+
+.meal-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.meal-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(75, 40, 126, 0.9);
+    color: white;
+    padding: 20px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    text-align: left;
+    font-size: 14px;
+}
+
+.meal-card:hover .meal-overlay {
+    opacity: 1;
+}
+
+
