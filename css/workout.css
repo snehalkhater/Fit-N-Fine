@@ -16,7 +16,7 @@ body {
       height: 550px;
       background: white;
       border: 0%;
-      border-radius: none;
+      border-radius: 10px;
       overflow: hidden;
       display: flex;
       flex-direction: column;
