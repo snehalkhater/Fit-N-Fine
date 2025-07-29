@@ -6,7 +6,7 @@ body {
 
     /* Hero Section */
     .hero {
-      background-image: url('../images//healthy-1.jpg'); /* Replace with your image */
+      background-image: url("../images/healthy-1.jpg");/* Replace with your image */
       background-size: cover;
       background-position: center;
       height: 450px;
