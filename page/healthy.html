@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>healthy living webpage</title>
+</head>
+<style>
+  body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #e7e7f3;
+    }
+
+    /* Hero Section */
+    .hero {
+      background-image: url('../images//healthy-1.jpg'); /* Replace with your image */
+      background-size: cover;
+      background-position: center;
+      height: 450px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(0, 0, 0, 0.3);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 600px;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero p {
+      font-size: 1rem;
+    }
+
+    /* Fitness Section */
+    .section {
+      padding: 40px 20px;
+    }
+
+    .section h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 2rem;
+    }
+
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .card {
+      background: white;
+      width: 250px;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      transform: scale(1.03);
+    }
+
+    .card img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+    }
+
+    .card-content {
+      padding: 15px;
+    }
+
+    .card-content h3 {
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .card-content p {
+      font-size: 0.875rem;
+      color: #333;
+    }
+
+    .read-time {
+      font-size: 0.75rem;
+      color:#3a2757;
+      margin-top: 8px;
+    }
+</style>
+<body>
+
+  <!-- Hero Section -->
+  <div class="hero">
+    <div class="hero-content">
+      <h1>Live Well, Feel Great and Look Great.</h1>
+      <p>A huge selection of health and fitness content, healthy recipes, and transformation stories to help you get fit and stay fit!</p>
+    </div>
+  </div>
+
+  <!-- Fitness Articles Section -->
+  <div class="section">
+    <h2>Fitness</h2>
+    <div class="cards">
+      <!-- Card 1 -->
+      <div class="card">
+        <img src="../images/yoga .jpg" alt="Chronic Pain">
+        <div class="card-content">
+          <h3>Staying Active with Chronic Pain</h3>
+          <p>How to keep a workout routine when you live with chronic pain or fatigue.</p>
+          <div class="read-time">Read Time: 9 Min</div>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="card">
+        <img src="../images/zumba.jpg" alt="Push Ups">
+        <div class="card-content">
+          <h3>9 Workouts to Improve Your Push-Up</h3>
+          <p>How to increase strength to do more push-ups.</p>
+          <div class="read-time">Read Time: 6 Min</div>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="card">
+        <img src="../images/zumba.jpg" alt="Rib Flare">
+        <div class="card-content">
+          <h3>What is Rib Flare?</h3>
+          <p>Common causes of rib flare and tips for maintaining rib health.</p>
+          <div class="read-time">Read Time: 7 Min</div>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="card">
+        <img src="../images/cardio3jpg" alt="Start a Family">
+        <div class="card-content">
+          <h3>Looking to Start a Family?</h3>
+          <p>What you need to know about exercise and fertility.</p>
+          <div class="read-time">Read Time: 9 Min</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
