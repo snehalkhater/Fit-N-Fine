@@ -62,4 +62,22 @@
         .btn:hover {
             background-color: #3a2757;
         }
+ .about .row {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            padding: 2rem;
+        }
+
+        .about .row .image {
+            flex: 1 1 42rem;
+        }
+
+        .about .row .image img {
+            margin-left: 90px;
+            width: 70%;
+            animation: aboutImage 4s linear infinite;
+        }
+
 
