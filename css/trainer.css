@@ -148,3 +148,32 @@
       padding-top: 1rem;
       color: var(--main-color);
   }
+    
+  /*Trainer add*/
+   .trainer-section {
+            margin: 40px;
+            font-family: 'Poppins', sans-serif;
+            background-color: #e3ceff;
+            text-align: center;
+            padding: 50px;
+        }
+
+        .trainer-heading {
+            font-size: 4rem;
+            color: #4c346b;
+            margin-bottom: 3rem;
+        }
+
+        .trainer-cards {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .trainer-card {
+            width: 280px;
+            height: 360px;
+            perspective: 1000px;
+        }
+
