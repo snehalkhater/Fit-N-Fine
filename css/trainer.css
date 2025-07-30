@@ -46,4 +46,20 @@
             color: var(--main-color);
             font-size: 3rem;
         }
+ .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #4c346b;
+            color: white;
+            text-decoration: none;
+            border-radius: 20px;
+            border: 1px solid #fff;
+            transition: background 0.3s;
+            font-size: 1.6rem;
+            margin-top: 1rem;
+        }
+
+        .btn:hover {
+            background-color: #3a2757;
+        }
 
