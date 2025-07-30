@@ -208,5 +208,25 @@
             height: 100%;
             object-fit: cover;
         }
+  .card-back {
+            background: #4c346b;
+            color: white;
+            padding: 2rem;
+            transform: rotateY(180deg);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .card-back h3 {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .card-back p {
+            font-size: 1.3rem;
+            line-height: 1.6;
+        }
 
 
