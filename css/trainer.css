@@ -80,4 +80,28 @@
             animation: aboutImage 4s linear infinite;
         }
 
+        @keyframes aboutImage {
+
+            0%,
+            100% {
+                transform: scale(0.9);
+                border-radius: var(--border-radius-hover);
+            }
+
+            50% {
+                transform: scale(0.8);
+                border-radius: var(--border-radius);
+            }
+        }
+
+        .about .row .content {
+            flex: 1 1 42rem;
+        }
+
+        .about .row .content .title {
+            color: var(--main-color);
+            font-size: 3rem;
+            line-height: 1.8;
+        }
+
 
