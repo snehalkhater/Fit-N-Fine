@@ -68,8 +68,8 @@ ul.nav-links li a:hover {
 .btn {
     display: inline-block;
     padding: 10px 20px;
-    background-color: #4c346b;
-    color: white;
+    background-color: #fff;
+    color: #4c346b;
     text-decoration: none;
     border-radius: 20px;
     border-color: #fff;
@@ -78,14 +78,16 @@ ul.nav-links li a:hover {
 
 .btn:hover {
     background-color: #3a2757;
+    color: #fff;
+    text-decoration-line: underline;
 }
 
 /* SLIDER SECTION */
 .slider-container {
-   
+
     margin-top: 20px;
     width: 100%;
-    height: 400px;
+    height: 350px;
     overflow: hidden;
     position: relative;
     background-image: url('./../images/slider-bg.png');
@@ -94,7 +96,6 @@ ul.nav-links li a:hover {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
 }
 
 .slider-container h2 {
@@ -129,7 +130,7 @@ ul.nav-links li a:hover {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.4s ease;
+    
 }
 
 .slide-image img:hover {
