@@ -38,13 +38,12 @@
   }
 
   .heading span {
-
+      color: #4c346b;
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
       width: 100%;
-      color: var(--main-color);
       font-size: 3rem;
   }
 
@@ -62,7 +61,13 @@
   }
 
   .btn:hover {
+      transition: 0.3s;
+      text-decoration-line: underline;
       background-color: #3a2757;
+  }
+
+  .about {
+      background-color: #e3ceff;
   }
 
   .about .row {
@@ -102,7 +107,7 @@
   }
 
   .about .row .content .title {
-      color: var(--main-color);
+      color: #4c346b;
       font-size: 3rem;
       line-height: 1.8;
   }
