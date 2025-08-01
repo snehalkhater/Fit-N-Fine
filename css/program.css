@@ -1,151 +1,216 @@
-body {
-    padding: 0%;
-    margin: 30px;
-}
+    :root {
+      --main-color: #443;
+      --purple: #7e57c2;
+      --purple-dark: #5e35b1;
+      --border-radius: 95% 4% 97% 5% / 4% 94% 3% 95%;
+      --border-radius-hover: 4% 95% 6% 95% / 95% 4% 92% 5%;
+      --border: 0.2rem solid var(--main-color);
+      --border-hover: 0.2rem dashed var(--main-color);
+    }
 
-.card-section {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
-    padding: 50px 60px;
-    background-color: #e0d0f5;
-}
+    * {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      text-transform: capitalize;
+      transition: all 0.2s linear;
+    }
 
-.fitness-card {
-    margin-left: 50px;
-    background-color: white;
-    border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    flex: 1;
-    padding: 20px;
-    text-align: center;
-    transition: transform 0.3s;
-}
-.heading {
-    text-align: center;
-    margin-top: 10px;
-    font-size: 28px;
-    color: #4c346b;
-}
+    html {
+      font-size: 62.5%;
+      overflow-x: hidden;
+      scroll-padding-top: 7rem;
+      scroll-behavior: smooth;
+    }
 
-.heading p {
-    font-size: 20px;
-    color: #4c346b;
-    margin-top: 10px;
-    align-items: left;
-}
+    body {
+      background-color: #e3ceff;
+    }
 
-.fitness-card img {
-    width: 270px;
-    height: 250px;
-    object-fit: cover;
-    border-radius: 12px;
-}
+    .heading {
+      margin-top: 60px;
+      font-size: 6rem;
+      text-transform: uppercase;
+      color: transparent;
+      -webkit-text-stroke: 0.05rem var(--main-color);
+      letter-spacing: 0.2rem;
+      text-align: center;
+      position: relative;
+    }
 
-.fitness-card h3 {
-    margin: 15px 0 10px;
-    color: #4c346b;
-    font-size: 22px;
-}
+    .heading span {
+      color: #4c346b;
+      position: absolute;
+      top: 60%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+      font-size: 2.5rem;
+    }
 
-.fitness-card p {
-    color: #444;
-    margin-bottom: 15px;
-    font-size: 14px;
-    line-height: 1.5;
-}
+    .program-section {
+      padding: 2rem 1rem;
+      max-width: 1100px;
+      margin: 10px auto;
+    }
 
-.card-btn {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #4c346b;
-    color: white;
-    text-decoration: none;
-    border-radius: 20px;
-    transition: background 0.3s;
-    font-weight: bold;
-}
+    .program-row {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap-reverse;
+      gap: 2rem;
+    }
 
-.card-btn:hover {
-    background-color: #3a2757;
-}
+    .program-image {
+      flex: 1 1 30rem;
+      display: flex;
+      justify-content: flex-end;
+    }
 
-.fitness-card:hover {
-    transform: translateY(-5px);
-}
-/* Responsive */
-@media (max-width: 768px) {
-    .card-section {
+    .program-image img {
+      width: 85%;
+      max-width: 320px;
+      animation: aboutImage 4s linear infinite;
+    }
+
+    @keyframes aboutImage {
+      0%, 100% {
+        transform: scale(0.95);
+        border-radius: var(--border-radius-hover);
+      }
+      50% {
+        transform: scale(0.85);
+        border-radius: var(--border-radius);
+      }
+    }
+
+    .program-content {
+      flex: 1 1 40rem;
+    }
+
+    .program-content .title {
+      color: #4c346b;
+      font-size: 2.5rem;
+      line-height: 1.6;
+    }
+
+    .program-content p {
+      color: var(--main-color);
+      font-size: 1.4rem;
+      line-height: 1.7;
+      padding: 1rem 0;
+    }
+
+    .steps-box {
+      padding: 1rem 0;
+      margin-top: 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .step-card {
+      flex: 1 1 15rem;
+      padding: 1.2rem;
+      text-align: center;
+      border: var(--border);
+      background-color: #fff;
+    }
+
+    .step-card img {
+      height: 4.5rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .step-card h3 {
+      font-size: 1.6rem;
+      color: #4c346b;
+      margin-bottom: 0.3rem;
+    }
+
+    .step-card p {
+      font-size: 1.3rem;
+      color: var(--main-color);
+    }
+
+    .plans-section {
+      text-align: center;
+      padding: 50px 20px;
+      background: #fff;
+    }
+
+    .plans-section h2 {
+      font-size: 3rem;
+      margin-bottom: 30px;
+      color: #4c346b;
+    }
+
+    .card-container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+
+    .plan-card {
+      background: #fff;
+      border: 2px solid #ddd;
+      border-radius: 20px;
+      width: 300px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .plan-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .plan-card img {
+      width: 100%;
+      border-top-left-radius: 18px;
+      border-top-right-radius: 18px;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .plan-content {
+      padding: 20px;
+    }
+
+    .plan-title {
+      font-size: 1.8rem;
+      color: #222;
+      margin-bottom: 10px;
+    }
+
+    .plan-desc {
+      font-size: 1.3rem;
+      color: #555;
+      margin-bottom: 20px;
+    }
+
+    .pay-btn {
+      font-size: 1.4rem;
+      display: inline-block;
+      padding: 10px 30px;
+      background: var(--purple);
+      color: #fff;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.3s ease;
+    }
+
+    .pay-btn:hover {
+      background: var(--purple-dark);
+    }
+
+    @media (max-width: 768px) {
+      .card-container {
         flex-direction: column;
         align-items: center;
-        padding: 30px 20px;
+      }
     }
-
-    .fitness-card {
-        margin-left: 0;
-        width: 90%;
-    }
-}
-
-/*meal section*/
-.meal-plan-section {
-    margin-top: 20px;
-    padding: 40px 60px;
-    background-color: #e0d0f5;
-    text-align: center;
-}
-
-.meal-heading {
-    font-size: 32px;
-    color: #4b287e;
-    margin-bottom: 30px;
-}
-
-.meal-card-container {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-
-.meal-card {
-    position: relative;
-    width: 300px;
-    height: 300px;
-    overflow: hidden;
-    border-radius: 15px;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-    cursor: pointer;
-}
-
-.meal-card:hover {
-    transform: scale(1.05);
-}
-
-.meal-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.meal-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    background: rgba(75, 40, 126, 0.9);
-    color: white;
-    padding: 20px;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    text-align: left;
-    font-size: 14px;
-}
-
-.meal-card:hover .meal-overlay {
-    opacity: 1;
-}
-
-
