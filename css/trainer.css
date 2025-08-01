@@ -11,9 +11,6 @@
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      outline: none;
-      border: none;
-      text-decoration: none;
       text-transform: capitalize;
       transition: all 0.2s linear;
   }
@@ -26,25 +23,24 @@
   }
 
   .heading {
-      margin-top: 60px;
-      font-size: 9rem;
+      margin-top: 90px;
+      font-size: 6rem;
       text-transform: uppercase;
       color: transparent;
       -webkit-text-stroke: 0.05rem var(--main-color);
       letter-spacing: 0.2rem;
       text-align: center;
-      pointer-events: none;
       position: relative;
   }
 
   .heading span {
       color: #4c346b;
       position: absolute;
-      top: 50%;
+      top: 60%;
       left: 50%;
       transform: translate(-50%, -50%);
       width: 100%;
-      font-size: 3rem;
+      font-size: 2.5rem;
   }
 
   .btn {
@@ -67,10 +63,15 @@
   }
 
   .about {
-      background-color: #e3ceff;
+      background: #e3ceff;
+      padding-top: 80px;
+      margin-top: -80px;
+      z-index: -1;
   }
 
+
   .about .row {
+      margin: 0;
       display: flex;
       align-items: center;
       flex-wrap: wrap;
@@ -103,6 +104,7 @@
   }
 
   .about .row .content {
+      margin: 10px auto;
       flex: 1 1 42rem;
   }
 
