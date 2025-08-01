@@ -1,12 +1,77 @@
+.hero-section {
+
+    position: relative;
+    color: white;
+}
+/* NAVIGATION */
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 15px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 2;
+    flex-wrap: wrap;
+}
+
+.logo img {
+    height: 40px;
+    margin-left: 20px;
+}
+
+ul.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+ul.nav-links li a {
+    font-size: 18px;
+    padding: 8px 12px;
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+ul.nav-links li a:hover {
+    background-color: rgb(236, 238, 241);
+    color: #4c346b;
+    text-decoration: underline;
+}
+
+.btn {
+    margin-right: 35px;
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #fff;
+    color: #4c346b;
+    text-decoration: none;
+    border-radius: 20px;
+    border-color: #fff;
+    transition: background 0.3s;
+}
+
+.btn:hover {
+    background-color: #3a2757;
+    color: #fff;
+    text-decoration-line: underline;
+}
+
 body {
   font-family: 'Segoe UI', sans-serif;
   background:white;
   padding: 10px;
-  margin: 10px;
+  margin: 20px;
 }
 
+
 .container {
-  margin: 25px;
+  margin-top: 80px;
   display: flex;
   justify-content: center;
   gap: 30px;
@@ -16,7 +81,7 @@ body {
 
 
 .card {
-  margin-top: 50px;
+  margin-top: 10px;
   width: 350px;
   height: 550px;
   background: white;
@@ -74,7 +139,7 @@ body {
 }
 
 .btn:hover {
-  background-color: #3a2757;;
+  background-color: #3a2757;
   box-shadow: 10px 6px 15px rgba(20, 0, 30, 0.1);
 }
 
@@ -84,11 +149,33 @@ body {
   background-color: #e0b0f5;
   text-align: center;
 }
+
+/* Animation Keyframes */
+   @keyframes fadeSlideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+    color: #2c1a4d; /* Initial color */
+  }
+  50% {
+    color: #6a0dad; /* Mid color (optional step for smooth transition) */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    color: #140221; /* Final color */
+  }
+}
+
 .section h2 {
   font-size: 28px;
   color: #2c1a4d;
   margin-bottom: 40px;
+  animation: fadeSlideUp 1s ease-out infinite;
+  animation-delay: 0s;
+  animation-duration: 10s;
 }
+
 .features {
   display: flex;
   flex-wrap: wrap;
