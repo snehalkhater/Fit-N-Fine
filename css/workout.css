@@ -1,70 +1,218 @@
+.hero-section {
+
+    position: relative;
+    color: white;
+}
+/* NAVIGATION */
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 15px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 2;
+    flex-wrap: wrap;
+}
+
+.logo img {
+    height: 40px;
+    margin-left: 20px;
+}
+
+ul.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+ul.nav-links li a {
+    font-size: 18px;
+    padding: 8px 12px;
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+ul.nav-links li a:hover {
+    background-color: rgb(236, 238, 241);
+    color: #4c346b;
+    text-decoration: underline;
+}
+
+.btn {
+    margin-right: 35px;
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #fff;
+    color: #4c346b;
+    text-decoration: none;
+    border-radius: 20px;
+    border-color: #fff;
+    transition: background 0.3s;
+}
+
+.btn:hover {
+    background-color: #3a2757;
+    color: #fff;
+    text-decoration-line: underline;
+}
+
 body {
-      font-family: 'Segoe UI', sans-serif;
-      background: #f9f9f9;
-      padding: 40px;
-      margin: 0;
-    }
-    .container {
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-      flex-wrap: wrap;
-    }
-    .card {
-      margin-top: 50px;
-      width: 350px;
-      height: 550px;
-      background: white;
-      border: 0%;
-      border-radius: none;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    }
-    .card:hover {
-      transform: scale(1.02);
-      background-color: rgb(244, 240, 240);
-    }
-    .image img {
-      width: 120%;
-      height: 250px;
-      object-fit: cover;
-    }
-    .workout-type {
-      font-size: 28px;
-      font-weight: bold;
-      text-align: center;
-      margin-top: 20px;
-      color: black;
-    }
-    .info {
-      list-style: none;
-      color: #333;
-      font-weight: bold;
-      padding: 10px;
-    }
-    .info-1 {
-      list-style: none;
-      color: #333;
-      font-weight: bold;
-      padding: 10px;
-      margin-left: 25px;
-    }
-    .btn {
-      margin-top: 10px;
-      padding: 8px;
-      text-decoration: none;
-      display: inline-block;
-      border-radius: 10px;
-      border: none;
-      background-color: black;
-      color: white;
-    }
-    .btn:hover {
-      transform: scale(1.02);
-      background-color: white;
-      color: black;
-      box-shadow: 10px 6px 15px rgba(8, 7, 7, 0.1);
-    }
+  font-family: 'Segoe UI', sans-serif;
+  background:white;
+  padding: 10px;
+  margin: 20px;
+}
+
+
+.container {
+  margin-top: 80px;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+
+}
+
+
+.card {
+  margin-top: 10px;
+  width: 350px;
+  height: 550px;
+  background: white;
+  border: 0%;
+  border-radius: 15px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.card:hover {
+  transform: scale(1.02);
+}
+
+.image img {
+  width: 120%;
+  height: 250px;
+  object-fit: cover;
+}
+
+.workout-type {
+  font-size: 28px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 20px;
+  color: black;
+}
+
+.info {
+  list-style: none;
+  color: #333;
+  font-weight: bold;
+  padding: 10px;
+}
+
+.info-1 {
+  list-style: none;
+  color: #333;
+  font-weight: bold;
+  padding: 10px;
+  margin-left: 25px;
+}
+
+.btn {
+   display: inline-block;
+    padding: 10px 20px;
+    background-color: #4c346b;
+    color: white;
+    text-decoration: none;
+    border-radius: 20px;
+    transition: background 0.3s;
+    font-weight: bold;
+}
+
+.btn:hover {
+  background-color: #3a2757;
+  box-shadow: 10px 6px 15px rgba(20, 0, 30, 0.1);
+}
+
+
+.section {
+  margin-top: 60px;
+  background-color: #e0b0f5;
+  text-align: center;
+}
+
+/* Animation Keyframes */
+   @keyframes fadeSlideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+    color: #2c1a4d; /* Initial color */
+  }
+  50% {
+    color: #6a0dad; /* Mid color (optional step for smooth transition) */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    color: #140221; /* Final color */
+  }
+}
+
+.section h2 {
+  font-size: 28px;
+  color: #2c1a4d;
+  margin-bottom: 40px;
+  animation: fadeSlideUp 1s ease-out infinite;
+  animation-delay: 0s;
+  animation-duration: 10s;
+}
+
+.features {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px 80px;
+  max-width: 1800px;
+  margin: 0 auto;
+}
+.feature {
+  padding: 10px;
+  flex: 1 1 250px;
+  max-width: 350px;
+  text-align: center;
+  height: 270px;
+}
+.feature:hover {
+  transform: translateY(-5px);
+}
+.feature img {
+  margin-top: 15px;
+  width: 70px;
+  height: 70px;
+}
+.feature h3 {
+  font-size: 20px;
+  color: #2c1a4d;
+  margin-bottom: 10px;
+}
+.feature p {
+  font-size: 15px;
+  color: black;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .features {
+    flex-direction: column;
+    align-items: center;
+  }
+}
