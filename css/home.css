@@ -65,7 +65,7 @@ ul.nav-links li a:hover {
     text-decoration: underline;
 }
 
-.btn {
+.button {
     display: inline-block;
     padding: 10px 20px;
     background-color: #fff;
@@ -76,7 +76,7 @@ ul.nav-links li a:hover {
     transition: background 0.3s;
 }
 
-.btn:hover {
+.button:hover {
     background-color: #3a2757;
     color: #fff;
     text-decoration-line: underline;
@@ -169,7 +169,7 @@ ul.nav-links li a:hover {
 }
 
 .map-button {
-    padding: 12px 24px;
+    padding: 20px 30px;
     background-color: #810ca8;
     color: #fff;
     border-radius: 25px;
