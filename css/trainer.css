@@ -214,6 +214,7 @@
     }
 
     /*Trainer card css*/
+
     .program-section {
         text-align: center;
         padding: 40px 20px;
@@ -281,6 +282,10 @@
         cursor: pointer;
         pointer-events: none;
         transition: opacity 0.3s ease;
+    }
+    .explore-btn a{
+        text-decoration: none;
+        color: #ffffff;
     }
 
     .card:hover .explore-btn {
