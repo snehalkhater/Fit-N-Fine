@@ -274,3 +274,122 @@
            align-items: center;
        }
    }
+.plan-section {
+    padding: 60px 0;
+    background: linear-gradient(to right, #4a2a7c, #301654);
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 20px;
+  }
+
+  .section-title {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #e0d9f8;
+    font-size: 32px;
+  }
+
+  .plans-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .plan-card {
+    background-color: rgba(94, 75, 139, 0.2);
+    border: 1px solid #a58ee9;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    width: 320px;
+    padding: 30px;
+    position: relative;
+    transition: transform 0.3s ease;
+    backdrop-filter: blur(10px);
+  }
+
+  .plan-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .badge {
+    position: absolute;
+    top: -12px;
+    left: 20px;
+    background-color: #a58ee9;
+    color: #301654;
+    padding: 6px 12px;
+    font-size: 13px;
+    font-weight: bold;
+    border-radius: 8px;
+  }
+
+  .plan-card h2 {
+    font-size: 24px;
+    margin-bottom: 8px;
+    color: #e7dbfc;
+  }
+
+  .price {
+    font-size: 28px;
+    color: #d2c4f9;
+  }
+
+  .original-price {
+    font-size: 14px;
+    text-decoration: line-through;
+    color: #a58ee9;
+  }
+
+  .price-note {
+    font-size: 14px;
+    color: #d9cffa;
+    margin-bottom: 15px;
+  }
+
+  ul.features {
+    list-style-type: none;
+    padding: 0;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    color: #fff; /* 👈 white list item text */
+  }
+
+  ul.features li::before {
+    content: "✓ ";
+    color: #c3b5f4;
+    font-weight: bold;
+  }
+
+  .highlight {
+    color: #fff;
+    font-weight: bold;
+  }
+
+  .buy-btn {
+    display: block;
+    width: 100%;
+    background-color: transparent;
+    color: #cfc4ff;
+    border: 1px solid #cfc4ff;
+    border-radius: 8px;
+    padding: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s ease;
+  }
+
+  .buy-btn:hover {
+    background-color: #cfc4ff;
+    color: #301654;
+  }
+
+  @media (max-width: 1000px) {
+    .plans-container {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
