@@ -1,115 +1,321 @@
 body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #e7e7f3;
-    }
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #e7e7f3;
+}
 
-    /* Hero Section */
-    .hero {
-      background-image: url("../images/healthy-1.jpg");/* Replace with your image */
-      background-size: cover;
-      background-position: center;
-      height: 450px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      text-align: center;
-      position: relative;
-    }
+/* NAVIGATION */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 15px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 2;
+  flex-wrap: wrap;
+}
 
-    .hero::before {
-      content: "";
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background-color: rgba(0, 0, 0, 0.3);
-    }
+.logo img {
+  height: 40px;
+  margin-left: 20px;
+}
 
-    .hero-content {
-      position: relative;
-      z-index: 1;
-      max-width: 600px;
-    }
+ul.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
 
-    .hero h1 {
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
-    }
+ul.nav-links li a {
+  font-size: 18px;
+  padding: 8px 12px;
+  color: white;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
 
-    .hero p {
-      font-size: 1rem;
-    }
+ul.nav-links li a:hover {
+  background-color: rgb(236, 238, 241);
+  color: #4c346b;
+  text-decoration: underline;
+}
 
-    /* Fitness Section */
-    .section {
-      padding: 40px 20px;
-    }
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  margin-right: 65px;
+  background-color: #fff;
+  color: #4c346b;
+  text-decoration: none;
+  border-radius: 20px;
+  border-color: #fff;
+  transition: background 0.3s;
+}
 
-    .section-2 {
-      padding: 40px 20px;
-       background-color: #e0d0f5;
-  
-    }
+.btn:hover {
+  background-color: #3a2757;
+  color: #fff;
+  text-decoration-line: underline;
+}
 
 
-    .section-2 h2 {
-      text-align: center;
-      margin-bottom: 30px;
-      font-size: 2rem;
-    }
+/* Hero Section */
+.hero {
+  background-image: url("../images/healthy-1.jpg");
+  /* Replace with your image */
+  background-size: cover;
+  background-position: center;
+  height: 450px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+  position: relative;
+}
 
-    .section h2 {
-      text-align: center;
-      margin-bottom: 30px;
-      font-size: 2rem;
-    }
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+}
 
-    .cards {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      justify-content: center;
-    }
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 600px;
+}
 
-    .card {
-      background: white;
-      width: 250px;
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      transition: transform 0.3s;
-    }
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  font-size: 40px;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+  text-shadow: 0 0 10px rgba(201, 13, 182, 0.3),
+    0 0 20px rgba(197, 13, 169, 0.2),
+    0 0 30px rgba(125, 10, 129, 0.1);
+}
 
-    .card:hover {
-      transform: scale(1.03);
-    }
+.hero p {
+  font-size: 1rem;
+}
 
-    .card img {
-      width: 100%;
-      height: 150px;
-      object-fit: cover;
-    }
+/* Fitness Section */
+.section {
+  padding: 40px 20px;
+  background-color: #e0d0f5;
+}
 
-    .card-content {
-      padding: 15px;
-    }
+.section-2 {
+  margin-top: 20px;
+  padding: 40px 20px;
+  background-color: #e0d0f5;
 
-    .card-content h3 {
-      font-size: 1rem;
-      margin-bottom: 0.5rem;
-    }
-   
-    .card-content h2 {
-      font-size: 10px;
-      margin-bottom: 0.5rem;
-      color:#3a2757;
-      text-align: start;
-    }
+}
 
-    .card-content p {
-      font-size: 0.875rem;
-      color: #333;
-    }
+.section-3 {
+  margin-top: 20px;
+  padding: 40px 20px;
+  background-color: #e0d0f5;
 
-    
+}
+
+.section-3 h2 {
+  text-align: center;
+  font-size: 35px;
+  font-weight: bold;
+  color: black;
+  margin-top: 10px;
+  text-shadow: 0 0 10px rgba(201, 13, 182, 0.3),
+    0 0 20px rgba(197, 13, 169, 0.2),
+    0 0 30px rgba(125, 10, 129, 0.1);
+  animation: colorGlow 8s infinite alternate;
+
+
+}
+
+@keyframes colorGlow {
+  0% {
+    text-shadow: 0 0 10px rgba(164, 16, 228, 0.3),
+      0 0 20px rgba(125, 6, 97, 0.2),
+      0 0 30px rgba(33, 2, 36, 0.1);
+  }
+
+  25% {
+    text-shadow: 0 0 10px rgba(255, 0, 150, 0.5),
+      0 0 20px rgba(255, 0, 150, 0.4),
+      0 0 30px rgba(255, 0, 150, 0.3);
+  }
+
+  50% {
+    text-shadow: 0 0 10px rgba(21, 166, 206, 0.5),
+      0 0 20px rgba(7, 101, 128, 0.4),
+      0 0 30px rgba(4, 66, 83, 0.3);
+  }
+
+  75% {
+    text-shadow: 0 0 10px rgba(16, 158, 99, 0.5),
+      0 0 20px rgba(9, 114, 70, 0.4),
+      0 0 30px rgba(6, 85, 51, 0.3);
+  }
+
+  100% {
+    text-shadow: 0 0 10px rgba(209, 41, 198, 0.3),
+      0 0 20px rgba(168, 18, 168, 0.2),
+      0 0 30px rgba(140, 8, 100, 0.1);
+  }
+}
+
+
+
+
+.section-2 h2 {
+  text-align: center;
+  font-size: 35px;
+  font-weight: bold;
+  color: black;
+  margin-top: 10px;
+  text-shadow: 0 0 10px rgba(201, 13, 182, 0.3),
+    0 0 20px rgba(197, 13, 169, 0.2),
+    0 0 30px rgba(125, 10, 129, 0.1);
+  animation: colorGlow 8s infinite alternate;
+
+
+}
+
+@keyframes colorGlow {
+  0% {
+    text-shadow: 0 0 10px rgba(164, 16, 228, 0.3),
+      0 0 20px rgba(125, 6, 97, 0.2),
+      0 0 30px rgba(33, 2, 36, 0.1);
+  }
+
+  25% {
+    text-shadow: 0 0 10px rgba(255, 0, 150, 0.5),
+      0 0 20px rgba(255, 0, 150, 0.4),
+      0 0 30px rgba(255, 0, 150, 0.3);
+  }
+
+  50% {
+    text-shadow: 0 0 10px rgba(21, 166, 206, 0.5),
+      0 0 20px rgba(7, 101, 128, 0.4),
+      0 0 30px rgba(4, 66, 83, 0.3);
+  }
+
+  75% {
+    text-shadow: 0 0 10px rgba(16, 158, 99, 0.5),
+      0 0 20px rgba(9, 114, 70, 0.4),
+      0 0 30px rgba(6, 85, 51, 0.3);
+  }
+
+  100% {
+    text-shadow: 0 0 10px rgba(209, 41, 198, 0.3),
+      0 0 20px rgba(168, 18, 168, 0.2),
+      0 0 30px rgba(140, 8, 100, 0.1);
+  }
+}
+
+
+.section h2 {
+  text-align: center;
+  font-size: 35px;
+  font-weight: bold;
+  color: black;
+  margin-top: 10px;
+  text-shadow: 0 0 10px rgba(201, 13, 182, 0.3),
+    0 0 20px rgba(197, 13, 169, 0.2),
+    0 0 30px rgba(125, 10, 129, 0.1);
+  animation: colorGlow 8s infinite alternate;
+
+
+}
+
+@keyframes colorGlow {
+  0% {
+    text-shadow: 0 0 10px rgba(164, 16, 228, 0.3),
+      0 0 20px rgba(125, 6, 97, 0.2),
+      0 0 30px rgba(33, 2, 36, 0.1);
+  }
+
+  25% {
+    text-shadow: 0 0 10px rgba(255, 0, 150, 0.5),
+      0 0 20px rgba(255, 0, 150, 0.4),
+      0 0 30px rgba(255, 0, 150, 0.3);
+  }
+
+  50% {
+    text-shadow: 0 0 10px rgba(21, 166, 206, 0.5),
+      0 0 20px rgba(7, 101, 128, 0.4),
+      0 0 30px rgba(4, 66, 83, 0.3);
+  }
+
+  75% {
+    text-shadow: 0 0 10px rgba(16, 158, 99, 0.5),
+      0 0 20px rgba(9, 114, 70, 0.4),
+      0 0 30px rgba(6, 85, 51, 0.3);
+  }
+
+  100% {
+    text-shadow: 0 0 10px rgba(209, 41, 198, 0.3),
+      0 0 20px rgba(168, 18, 168, 0.2),
+      0 0 30px rgba(140, 8, 100, 0.1);
+  }
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.card {
+  background: #e3ceff;
+  width: 250px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+
+.card:hover {
+  transform: scale(1.03);
+}
+
+.card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+.card-content {
+  padding: 15px;
+}
+
+.card-content h3 {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.card-content h2 {
+  font-size: 10px;
+  margin-bottom: 0.5rem;
+  color: #4c346b;
+  text-align: start;
+}
+
+.card-content p {
+  font-size: 0.875rem;
+  color: #333;
+}
