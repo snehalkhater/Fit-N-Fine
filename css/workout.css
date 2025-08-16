@@ -1,86 +1,86 @@
-
-    /* NAVIGATION */
+/* NAVIGATION */
 nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background: rgba(0, 0, 0, 0.6);
-    padding: 15px 30px;
-    margin: 0%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    z-index: 2;
-    flex-wrap: wrap;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 15px 30px;
+  margin: 0%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 2;
+  flex-wrap: wrap;
 }
 
 .logo img {
-    height: 40px;
-    margin-left: 20px;
+  height: 40px;
+  margin-left: 20px;
 }
 
 ul.nav-links {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
 }
 
 ul.nav-links li a {
-    font-size: 18px;
-    padding: 8px 12px;
-    color: white;
-    text-decoration: none;
-    transition: all 0.3s ease;
+  font-size: 18px;
+  padding: 8px 12px;
+  color: white;
+  text-decoration: none;
+  transition: all 0.3s ease;
 }
 
 ul.nav-links li a:hover {
-    background-color: rgb(236, 238, 241);
-    color: #4c346b;
-    text-decoration: underline;
+  background-color: rgb(236, 238, 241);
+  color: #4c346b;
+  text-decoration: underline;
 }
 
 .btn-2 {
-    display: inline-block;
-    margin-right: 65px;
-    padding: 10px 20px;
-    background-color: #fff;
-    color: #4c346b;
-    text-decoration: none;
-    border-radius: 20px;
-    border-color: #fff;
-    transition: background 0.3s;
+  display: inline-block;
+  margin-right: 65px;
+  padding: 10px 20px;
+  background-color: #fff;
+  color: #4c346b;
+  text-decoration: none;
+  border-radius: 20px;
+  border-color: #fff;
+  transition: background 0.3s;
 }
 
 .btn-2:hover {
-    background-color: #3a2757;
-    color: #fff;
-    text-decoration-line: underline;
+  background-color: #3a2757;
+  color: #fff;
+  text-decoration-line: underline;
 }
 
-    /* Background video section */
-    .video-section {
-      margin-top: 0px;
-      padding: 0px;
-      position: relative;
-      width: 100%;
-      height: 650px;
-      overflow: hidden;
-      object-fit: cover;
-    }
+/* Background video section */
+.video-section {
+  margin-top: 0px;
+  padding: 0px;
+  position: relative;
+  width: 100%;
+  height: 650px;
+  overflow: hidden;
+  object-fit: cover;
+}
 
-    .video-section video {
-      margin: 0px;
-      width: 100%;
-      height: 800px;
-      object-fit: cover;
-      position: absolute;
-      top: 0;
-      left: 0;
-      z-index: 1;
-    }
-  .video-heading {
+.video-section video {
+  margin: 0px;
+  width: 100%;
+  height: 800px;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.video-heading {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -91,214 +91,156 @@ ul.nav-links li a:hover {
   margin-top: 30px;
   padding: 20px 30px;
   border-radius: 12px;
-  color:rgb(55, 3, 52);
+  color: rgb(55, 3, 52);
   text-shadow: 0 0 10px rgba(134, 21, 102, 0.6);
   opacity: 0;
-   animation: slideZoomIn 3s ease-out forwards, hideHeading 1s ease-out forwards;
+  animation: slideZoomIn 3s ease-out forwards, hideHeading 1s ease-out forwards;
   animation-delay: 0s, 6s;
   z-index: 10;
 }
+
 /* Animation keyframes */
 @keyframes slideZoomIn {
   0% {
     opacity: 0;
     transform: translate(-50%, -50%) scale(0.2);
   }
+
   100% {
     opacity: 1;
     transform: translate(-50%, -50%) scale(1);
   }
 }
+
 @keyframes hideHeading {
   0% {
     opacity: 1;
   }
+
   100% {
     opacity: 0;
     transform: translate(-50%, -50%) scale(0.8);
   }
 }
-    .btn {
-      margin-top: auto;
-      margin-bottom: 20px;
-      padding: 10px 20px;
-      background-color: #4c346b;
-      color: white;
-      text-decoration: none;
-      border-radius: 20px;
-      transition: background 0.3s;
-      font-weight: bold;
-    }
 
-    .btn:hover {
-      background-color: #3a2757;
-      box-shadow: 10px 6px 15px rgba(20, 0, 30, 0.1);
-    }
+.btn {
+  margin-top: auto;
+  margin-bottom: 20px;
+  padding: 10px 20px;
+  background-color: #4c346b;
+  color: white;
+  text-decoration: none;
+  border-radius: 20px;
+  transition: background 0.3s;
+  font-weight: bold;
+}
 
-    .container-2 {
-      margin-top: 30px;
-      padding: 30px 10px;
-      background-color: #d1a1ec;
-    }
+.btn:hover {
+  background-color: #3a2757;
+  box-shadow: 10px 6px 15px rgba(20, 0, 30, 0.1);
+}
 
-    .container-1 {
-      margin-top: 30px;
-      padding: 30px 10px;
-      background-color: #dab0f2;
-    }
+.container-2 {
+  margin-top: 30px;
+  padding: 30px 10px;
+}
 
-    .page-title  {
-  
+.container-1 {
+  margin-top: 30px;
+  padding: 30px 10px;
+}
+
+.page-title {
+
   font-size: 40px;
-  color: black;
+  color:  #4c346b;
   text-align: center;
   font-weight: bold;
-  text-shadow: 0 0 10px rgba(201, 13, 182, 0.3),
-               0 0 20px rgba(197, 13, 169, 0.2),
-               0 0 30px rgba(125, 10, 129, 0.1);
-  animation: colorGlow 8s infinite alternate;
-}
-@keyframes colorGlow {
-  0% {
-    text-shadow: 0 0 10px rgba(164, 16, 228, 0.3),
-                 0 0 20px rgba(125, 6, 97, 0.2),
-                 0 0 30px rgba(33, 2, 36, 0.1);
-  }
-  25% {
-    text-shadow: 0 0 10px rgba(255, 0, 150, 0.5),
-                 0 0 20px rgba(255, 0, 150, 0.4),
-                 0 0 30px rgba(255, 0, 150, 0.3);
-  }
-  50% {
-    text-shadow: 0 0 10px rgba(21, 166, 206, 0.5),
-                 0 0 20px rgba(7, 101, 128, 0.4),
-                 0 0 30px rgba(4, 66, 83, 0.3);
-  }
-  75% {
-    text-shadow: 0 0 10px rgba(16, 158, 99, 0.5),
-                 0 0 20px rgba(9, 114, 70, 0.4),
-                 0 0 30px rgba(6, 85, 51, 0.3);
-  }
-  100% {
-    text-shadow: 0 0 10px rgba(209, 41, 198, 0.3),
-                 0 0 20px rgba(168, 18, 168, 0.2),
-                 0 0 30px rgba(140, 8, 100, 0.1);
-  }
 }
 
-    .card-container {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-
-    .card-1 {
-      background-color: #e3ceff;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-      width: 350px;
-      height: 450px;
-      padding: 20px;
-      text-align: left;
-    }
-
-    .card-1:hover {
-      transform: scale(1.02);
-    }
-
-    .card-1 img {
-      width: 100%;
-      border-radius: 8px;
-    }
-
-    .card-1 h2 {
-      margin-top: 15px;
-      font-size: 20px;
-      color: #4c346b;
-      text-align: center;
-    }
-
-    .card-1 p {
-      margin-top: 20px;
-      font-size: 15px;
-      color: #100f0f;
-    }
-    .btn {
-      display: inline-block;
-      /* already works fine for anchor buttons */
-      margin-left: auto;
-      margin-right: auto;
-      margin-top: 20px;
-      padding: 10px 20px;
-      background-color: #4c346b;
-      color: white;
-      text-decoration: none;
-      border-radius: 20px;
-      transition: background 0.3s;
-      font-weight: bold;
-    }
-
-    /* center parent element text-align */
-    .but-container-2 {
-      text-align: center;
-      margin-top: 20px;
-    }
-    .btn:hover {
-      background-color: #3a2757;
-      box-shadow: 10px 6px 15px rgba(20, 0, 30, 0.1);
-    }
-
-    .section {
-      margin-top:30px;
-      background-color: #e3ceff;
-      text-align: center;
-      padding: 20px;
-    }
-
-
-    .section h2 {
-      font-size: 35px;
-      font-weight: bold;
-      color: black;
-      margin-top: 10px;
-      text-shadow: 0 0 10px rgba(201, 13, 182, 0.3),
-               0 0 20px rgba(197, 13, 169, 0.2),
-               0 0 30px rgba(125, 10, 129, 0.1);
-     animation: colorGlow 8s infinite alternate;
-   
-   
-    }
-
-@keyframes colorGlow {
-  0% {
-    text-shadow: 0 0 10px rgba(164, 16, 228, 0.3),
-                 0 0 20px rgba(125, 6, 97, 0.2),
-                 0 0 30px rgba(33, 2, 36, 0.1);
-  }
-  25% {
-    text-shadow: 0 0 10px rgba(255, 0, 150, 0.5),
-                 0 0 20px rgba(255, 0, 150, 0.4),
-                 0 0 30px rgba(255, 0, 150, 0.3);
-  }
-  50% {
-    text-shadow: 0 0 10px rgba(21, 166, 206, 0.5),
-                 0 0 20px rgba(7, 101, 128, 0.4),
-                 0 0 30px rgba(4, 66, 83, 0.3);
-  }
-  75% {
-    text-shadow: 0 0 10px rgba(16, 158, 99, 0.5),
-                 0 0 20px rgba(9, 114, 70, 0.4),
-                 0 0 30px rgba(6, 85, 51, 0.3);
-  }
-  100% {
-    text-shadow: 0 0 10px rgba(209, 41, 198, 0.3),
-                 0 0 20px rgba(168, 18, 168, 0.2),
-                 0 0 30px rgba(140, 8, 100, 0.1);
-  }
+.card-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  background: #fff
 }
 
-    .features {
+.card-1 {
+  background: #e6dcf6;
+  border-radius: 12px;
+  border: 1px solid #a58ee9;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  width: 350px;
+  height: 450px;
+  padding: 20px;
+  text-align: left;
+}
+
+.card-1:hover {
+  transform: scale(1.02);
+}
+
+.card-1 img {
+  width: 100%;
+  border-top-left-radius: 18px;
+  border-top-right-radius: 18px;
+}
+
+.card-1 h2 {
+  margin-top: 15px;
+  font-size: 20px;
+  color: #4c346b;
+  text-align: center;
+}
+
+.card-1 p {
+  margin-top: 20px;
+  font-size: 15px;
+  color: #100f0f;
+}
+
+.btn {
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #4c346b;
+  color: white;
+  text-decoration: none;
+  border-radius: 20px;
+  transition: background 0.3s;
+  font-weight: bold;
+}
+
+/* center parent element text-align */
+.but-container-2 {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.btn:hover {
+  background-color: #3a2757;
+  box-shadow: 10px 6px 15px rgba(20, 0, 30, 0.1);
+}
+
+.section {
+  margin-top: 30px;
+  text-align: center;
+  padding: 20px;
+   background: linear-gradient(to right, #4a2a7c, #301654);
+}
+
+
+.section h2 {
+  font-size: 35px;
+  font-weight: bold;
+  color:  #ddcbf5;
+  margin-top: 10px;
+}
+
+.features {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -313,9 +255,10 @@ ul.nav-links li a:hover {
   max-width: 350px;
   text-align: center;
   height: auto;
-  background-color:#d0b3f7;
+  background: linear-gradient(to right, #4a2a7c, #301654);
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border: 1px solid #a58ee9;
+ box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -333,12 +276,14 @@ ul.nav-links li a:hover {
 
 .feature h3 {
   font-size: 20px;
-  color: #4c346b;
+  color: #ddcbf5;
   margin: 15px 0 10px;
 }
 
 .feature p {
   font-size: 15px;
-  color: black;
+  color: white;
   line-height: 1.6;
 }
+
+
