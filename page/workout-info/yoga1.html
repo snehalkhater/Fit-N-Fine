@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>yoga</title>
+    <style>
+          * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background-color: #f5f1f9;
+      color: #333;
+    }
+
+    .container {
+      width: 90%;
+      margin: 0 auto;
+    }
+
+    /* Video Banner */
+    .top-video {
+      height: 60vh;
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      margin: 30px auto;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+    }
+
+    .top-video video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .video-title {
+      position: absolute;
+      top: 20px;
+      left: 30px;
+      background-color: rgba(76, 0, 112, 0.8);
+      color: #fff;
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-size: 1.4rem;
+      font-weight: bold;
+      z-index: 2;
+    }
+
+    /* About Section */
+    .about-section {
+      margin: 40px auto;
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .about-section h2 {
+      font-size: 2rem;
+      color: #4c0070;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .trainer-info {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .trainer-info img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #a64bf4;
+    }
+
+    .trainer-info p {
+      font-size: 1rem;
+      color: #555;
+      line-height: 1.6;
+      max-width: 600px;
+      background-color: #fafafa;
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    .get-started {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .get-started button {
+      background-color: #4c0070;
+      color: #fff;
+      padding: 12px 30px;
+      border: none;
+      border-radius: 10px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    .get-started button:hover {
+      background-color: #6e00a1;
+    }
+    </style>
+</head>
+<body>
+    <body>
+  <div class="container">
+
+    <!-- Video -->
+    <div class="top-video">
+      <div class="video-title">Burn with Beats Program</div>
+      <video autoplay muted loop playsinline>
+        <source src="../../videos/exercise4.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </div>
+
+    <!-- About the Program -->
+    <div class="about-section">
+      <h2>About the Program</h2>
+      <div class="trainer-info">
+        <img src="./../../images/burnbeats.webp" alt="Trainer Photo" />
+        <p>
+          Turn up the volume and let the rhythm lead! Coach Ritika's <strong>Burn with Beats</strong> program combines
+          dance-inspired movements with high-energy HIIT workouts to help you burn fat and have fun. Let music motivate your moves!
+        </p>
+      </div>
+      <div class="get-started">
+        <button>Get Started</button>
+      </div>
+    </div>
+
+</body>
+</html>
