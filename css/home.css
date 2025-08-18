@@ -183,108 +183,74 @@ ul.nav-links li a:hover {
 }
 
 /*boxes*/
-.getting-started {
-    margin: 40px;
-    font-family: 'Segoe UI', sans-serif;
-    background-image: url('./../images/slider-bg.png');
-    background-size: cover;
-    background-position: center;
-    color: #fff;
-    padding: 50px 20px;
-    text-align: center;
-}
-
-.getting-started h2 {
-    font-size: 2.5rem;
-    margin-bottom: 30px;
-    color: #fff;
-    text-shadow: 1px 1px 4px #00000060;
-}
-
-.steps-container {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: nowrap;
-    /* force 4 boxes in a row */
-    max-width: 1200px;
-    margin: auto;
-    overflow-x: auto;
-}
-
-.step-box {
-    border: 1px solid #ffffff30;
-    border-radius: 15px;
-    padding: 30px 20px;
-    width: 22%;
-    /* force 4 in a row */
-    min-width: 250px;
-    box-sizing: border-box;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    position: relative;
-    text-align: center;
-}
-
-.step-box:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-    background: rgba(255, 255, 255, 0.12);
-}
-
-.step-icon img {
-    width: 60px;
-    height: 60px;
-    margin-bottom: 15px;
-    border-radius: 50%;
-    background: #fff;
-    padding: 8px;
-}
-
-.step-number {
-    display: inline-block;
-    font-size: 1rem;
-    color: #fff;
-    background-color: #5c028c;
-    border-radius: 50%;
-    width: 35px;
-    height: 35px;
-    line-height: 35px;
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-
-.step-box h3 {
-    margin: 10px 0;
-    font-size: 1.5rem;
-    color: #fff;
-}
-
-.step-box p {
-    color: #fff;
-    font-size: 1rem;
-}
-
-@media (max-width: 1000px) {
-    .steps-container {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    .step-box {
-        width: 45%;
-        margin-bottom: 20px;
-    }
-}
-
-@media (max-width: 600px) {
-    .step-box {
-        width: 90%;
+    /* ---------------- GETTING STARTED ---------------- */
+    .getting-started {
+      text-align: center;
+      padding: 60px 20px;
+      background: #f3ebfb;
     }
 
     .getting-started h2 {
-        font-size: 2rem;
+      font-size: 2.5rem;
+      margin-bottom: 40px;
+      color: #5e2b97;
     }
-}
+
+    .steps-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 25px;
+    }
+
+    .step-box {
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 20px;
+      width: 250px;
+      padding: 25px 20px;
+      position: relative;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    }
+
+    .step-box:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25);
+    }
+
+    .step-icon img {
+      width: 60px;
+      height: 60px;
+      margin-bottom: 15px;
+    }
+
+    .step-number {
+      position: absolute;
+      top: -15px;
+      right: -15px;
+      background: #9d50bb;
+      color: #fff;
+      font-size: 1.2rem;
+      font-weight: bold;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      line-height: 40px;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .step-box h3 {
+      margin: 10px 0;
+      font-size: 1.4rem;
+      color: #5e2b97;
+    }
+
+    .step-box p {
+      font-size: 0.95rem;
+      color: #555;
+      line-height: 1.5;
+    }
 
 /* FOOTER STYLES */
 .purple-footer {
