@@ -7,23 +7,28 @@
   <title>Home</title>
 </head>
 <link rel="stylesheet" href="./css/home.css">
-
 <body>
   <div class="hero-section">
-    <nav>
-      <div class="logo">
-        <img src="./images/anytime-fitness-logo.png" alt="logo-img">
-      </div>
-      <ul class="nav-links">
-        <li><a href="./index.html">Home</a></li>
-        <li><a href="./page/workout.html">Workout</a></li>
-        <li><a href="./page/plan.html">Plan</a></li>
-        <li><a href="./page/healthy.html">Healthy Living</a></li>
-        <li><a href="./page/trainer.html">Personal Trainer</a></li>
-        <li><a href="#">Join</a></li>
-      </ul>
-      <a href="#" class="button">Try Us For Free</a>
-    </nav>
+<nav>
+  <div class="logo">
+    <img src="./images/anytime-fitness-logo.png" alt="logo-img">
+  </div>
+
+  <!-- Hamburger -->
+  <button class="hamburger" id="hamburgerBtn" aria-label="Open menu">☰</button>
+
+  <ul class="nav-links" id="navLinks">
+    <li><a href="./index.html">Home</a></li>
+    <li><a href="./page/workout.html">Workout</a></li>
+    <li><a href="./page/plan.html">Plan</a></li>
+    <li><a href="./page/healthy.html">Healthy Living</a></li>
+    <li><a href="./page/trainer.html">Personal Trainer</a></li>
+    <li><a href="#">Join</a></li>
+  </ul>
+
+  <a href="#" class="button">Try Us For Free</a>
+</nav>
+
     <div class="home-img">
       <img src="./images/home-page.jpg" alt="home-img">
     </div>
@@ -165,6 +170,21 @@
             &copy; 2025 Anytime Fitness. All Rights Reserved.
         </div>
     </footer>
+<script>
+  const hamburger = document.getElementById('hamburgerBtn');
+  const navLinks = document.getElementById('navLinks');
+
+  hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+  });
+
+  // Close menu when a link is clicked
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('active');
+    });
+  });
+</script>
 
 </body>
 </html>
