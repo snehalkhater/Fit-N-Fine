@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>nutrition</title>
   <link rel="stylesheet" href="./../css/nutrition.css">
- </head>
+</head>
+
 <body>
   <!-- Sidebar -->
   <div class="sidebar">
@@ -121,7 +123,7 @@
         <p>Improves gut health and digestion.</p>
         <button>Buy Now</button>
       </div>
-         <div class="product-card digestive show">
+      <div class="product-card digestive show">
         <img src="./../images/aloeconcentrate.png" alt="Aloe concentrate">
         <h3>Aloe concentrate</h3>
         <p>Supports digestive wellness.</p>
@@ -133,7 +135,7 @@
         <p>Improves gut health and digestion.</p>
         <button>Buy Now</button>
       </div>
-         <div class="product-card digestive show">
+      <div class="product-card digestive show">
         <img src="./../images/simplyprobiotic.jpeg" alt="simplyprobiotic">
         <h3>simply probiotic</h3>
         <p>Supports digestive wellness.</p>
@@ -147,7 +149,7 @@
         <p>Delicious shake designed for children.</p>
         <button>Buy Now</button>
       </div>
-            <div class="product-card child show">
+      <div class="product-card child show">
         <img src="./../images/dianoshake2.jpeg" alt="Dino Shake 1">
         <h3>Dino Shake</h3>
         <p>Delicious shake designed for children.</p>
@@ -198,9 +200,27 @@
         <p>Supports vision and eye health.</p>
         <button>Buy Now</button>
       </div>
-
     </div>
   </div>
 
+
+  <script>
+    function filterProducts(category) {
+      let products = document.querySelectorAll('.product-card');
+      products.forEach(product => {
+        if (category === 'all') {
+          product.classList.remove('hide');
+        } else {
+          if (product.classList.contains(category)) {
+            product.classList.remove('hide');
+          } else {
+            product.classList.add('hide');
+          }
+        }
+      });
+    }
+  </script>
+
 </body>
+
 </html>
