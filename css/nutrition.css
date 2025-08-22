@@ -41,3 +41,52 @@
     .sidebar ul li:hover {
       background: #ab47bc;
     }
+    
+    /* Content */
+    .content {
+      margin-left: 270px;
+      /* space for sidebar */
+      padding: 30px;
+    }
+
+    .content h2 {
+      color: #6a1b9a;
+      margin-bottom: 20px;
+      margin-top: 60px;
+    }
+
+    /* Infinite slider */
+    .infinite-slider {
+      width: 100%;
+      overflow: hidden;
+      margin-bottom: 30px;
+      border-radius: 12px;
+      background: #fff;
+      padding: 10px 0;
+    }
+
+    .slider-track {
+      display: flex;
+      flex-wrap: nowrap;
+      animation: slide 20s linear infinite;
+    }
+
+    .slider-track img {
+      flex: 0 0 auto;
+      width: 200px;
+      height: 150px;
+      margin-right: 10px;
+      border-radius: 8px;
+      object-fit: contain;
+      background: #f8f8f8;
+    }
+
+    @keyframes slide {
+      0% {
+        transform: translateX(0);
+      }
+
+      100% {
+        transform: translateX(-50%);
+      }
+    }
