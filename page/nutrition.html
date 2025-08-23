@@ -9,9 +9,62 @@
 </head>
 
 <body>
+
+  <nav>
+    <div class="nav-top">
+      <div class="logo">
+        <img src="./../images/anytime-fitness-logo.png" alt="logo-img" />
+      </div>
+      <div class="nav-icons">
+        <img src="./../images/store.png" alt="store" class="store-icon" id="storeToggle" />
+        <img src="./../images/stack.png" alt="menu" class="hamburger" id="navToggle" />
+        <div class="cart-icon">
+          <img src="./../images/shopping-cart (2).png" alt="Cart" />
+        </div>
+      </div>
+    </div>
+
+    <div class="search-bar">
+      <input type="text" id="searchInput" placeholder="Search products..." />
+      <img src="./../images/search-interface-symbol.png" alt="Search" />
+    </div>
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="./../index.html">Home</a></li>
+      <li><a href="./../page/workout.html">Workout</a></li>
+      <li><a href="./../page/plan.html">Plan</a></li>
+      <li><a href="./../page/healthy.html">Healthy Living</a></li>
+      <li><a href="./../page/trainer.html">Personal Trainer</a></li>
+      <li><a href="./../page/nutrition.html">Nutrition</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <a href="#" class="button">Try Us For Free</a>
+    </div>
+  </nav>
+
   <!-- Sidebar -->
   <div class="sidebar">
     <h2>Nutrition Categories</h2>
+    <ul>
+      <li onclick="filterProducts('weight')">Weight Management</li>
+      <li onclick="filterProducts('Energy')">Energy and Fitness</li>
+      <li onclick="filterProducts('heart')">Heart Health</li>
+      <li onclick="filterProducts('digestive')">Digestive Health</li>
+      <li onclick="filterProducts('child')">Child Health</li>
+      <li onclick="filterProducts('skin')">Skin Health</li>
+      <li onclick="filterProducts('sleep')">Sleep Enhance</li>
+      <li onclick="filterProducts('eye')">Eye Health</li>
+      <li onclick="filterProducts('joint')">Joint & Bone Health</li>
+      <li onclick="filterProducts('all')">Show All</li>
+    </ul>
+  </div>
+  <!-- Mobile Slide Sidebar -->
+  <div id="mobileSidebar" class="mobile-sidebar">
+    <div class="mobile-sidebar-header">
+      <h3>Categories</h3>
+      <span id="closeSidebar">&times;</span>
+    </div>
     <ul>
       <li onclick="filterProducts('weight')">Weight Management</li>
       <li onclick="filterProducts('Energy')">Energy and Fitness</li>
@@ -205,6 +258,75 @@
 
 
   <script>
+    // Mobile sidebar toggle
+    const mobileSidebar = document.getElementById("mobileSidebar");
+    const closeSidebar = document.getElementById("closeSidebar");
+
+    storeToggle.addEventListener("click", () => {
+      mobileSidebar.classList.add("active");
+    });
+
+    closeSidebar.addEventListener("click", () => {
+      mobileSidebar.classList.remove("active");
+    });
+
+    // Auto-close sidebar when selecting a filter
+    document.querySelectorAll("#mobileSidebar ul li").forEach(li => {
+      li.addEventListener("click", () => {
+        mobileSidebar.classList.remove("active");
+      });
+    });
+    // Nav toggle
+    const navToggle = document.getElementById("navToggle");
+    const navLinks = document.getElementById("navLinks");
+    navToggle.addEventListener("click", () => {
+      navLinks.classList.toggle("active");
+    });
+    const searchInput = document.getElementById("searchInput");
+    const products = document.querySelectorAll(".product-card");
+
+    // Create a "no result" message
+    const noResultMsg = document.createElement("p");
+    noResultMsg.id = "noResult";
+    noResultMsg.style.textAlign = "center";
+    noResultMsg.style.marginTop = "20px";
+    noResultMsg.style.fontWeight = "bold";
+    noResultMsg.style.display = "none";
+    noResultMsg.textContent = "❌ No products found!";
+    document.querySelector(".products").appendChild(noResultMsg);
+
+    searchInput.addEventListener("keyup", function () {
+      let filter = this.value.toLowerCase();
+      let matchFound = false;
+
+      products.forEach(product => {
+        let text = product.innerText.toLowerCase();
+        if (text.includes(filter)) {
+          product.classList.remove("hide");
+          matchFound = true;
+        } else {
+          product.classList.add("hide");
+        }
+      });
+
+      // Show message if no match
+      noResultMsg.style.display = matchFound ? "none" : "block";
+    });
+    // Search functionality
+    document.getElementById("searchInput").addEventListener("keyup", function () {
+      let filter = this.value.toLowerCase();
+      let products = document.querySelectorAll(".product-card");
+
+      products.forEach(product => {
+        let text = product.innerText.toLowerCase();
+        if (text.includes(filter)) {
+          product.classList.remove("hide");
+        } else {
+          product.classList.add("hide");
+        }
+      });
+    });
+
     function filterProducts(category) {
       let products = document.querySelectorAll('.product-card');
       products.forEach(product => {
