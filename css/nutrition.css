@@ -4,6 +4,118 @@
       background: #f4f4f9;
   }
 
+  /* NAVIGATION */
+  nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(72, 3, 147, 0.6);
+      padding: 15px 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 2;
+      flex-wrap: wrap;
+  }
+
+  .logo img {
+      height: 40px;
+      margin-left: 20px;
+  }
+
+  ul.nav-links {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+  }
+
+  ul.nav-links li a {
+      font-size: 18px;
+      padding: 8px 12px;
+      color: white;
+      text-decoration: none;
+      transition: all 0.3s ease;
+  }
+
+  ul.nav-links li a:hover {
+      background-color: rgb(236, 238, 241);
+      color: #4c346b;
+      text-decoration: underline;
+  }
+
+  .button {
+      margin-right: 50px;
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #fff;
+      color: #4c346b;
+      text-decoration: none;
+      border-radius: 20px;
+      border-color: #fff;
+      transition: background 0.3s;
+  }
+
+  .button:hover {
+      background-color: #3a2757;
+      color: #fff;
+      text-decoration-line: underline;
+  }
+
+  .hamburger {
+      display: none;
+      font-size: 28px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      color: #fff;
+  }
+
+
+  @media (max-width: 768px) {
+      .hamburger {
+          display: block;
+      }
+
+      .nav-links {
+          flex-direction: column;
+          width: 100%;
+          max-height: 0;
+          overflow: hidden;
+          transition: max-height 0.4s ease;
+      }
+
+      .nav-links.active {
+          max-height: 500px;
+      }
+
+      .nav-links li {
+          margin: 10px 0;
+          text-align: center;
+      }
+
+      nav .button {
+          display: none;
+          margin: 10px auto;
+          text-align: center;
+      }
+
+      /* Mobile */
+      @media (max-width: 768px) {
+          .button {
+              display: none;
+          }
+
+          .nav-links.active+.button {
+              display: block;
+              text-align: center;
+              margin: 15px auto;
+          }
+      }
+  }
+
+
   /* Sidebar */
   .sidebar {
       width: 250px;
@@ -171,4 +283,215 @@
       .product-card {
           width: 200px;
       }
+  }
+
+  .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+  }
+
+  /* Search bar with icon */
+  .search-bar {
+      position: relative;
+      margin-left: 120px;
+  }
+
+  .search-bar input {
+      padding: 6px 32px 6px 10px;
+      border-radius: 20px;
+      border: none;
+      outline: none;
+  }
+
+  .search-bar img {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 18px;
+      height: 18px;
+      pointer-events: none;
+  }
+
+  .cart-icon img {
+      position: absolute;
+      left: 290px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 28px;
+      height: 28px;
+      cursor: pointer;
+
+  }
+
+
+  .store-icon,
+  .hamburger {
+      display: none;
+  }
+
+  /* Mobile Sidebar */
+  .mobile-sidebar {
+      position: fixed;
+      top: 0;
+      left: -260px;
+      width: 200px;
+      height: 100%;
+      color: #fff;
+      background: rgba(72, 3, 147, 0.6);
+      box-shadow: 2px 0 8px rgba(0, 0, 0, 0.3);
+      padding: 20px;
+      transition: left 0.3s ease;
+      z-index: 2000;
+  }
+
+  /* When active, slide in */
+  .mobile-sidebar.active {
+      left: 0;
+  }
+
+  .mobile-sidebar-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 15px;
+  }
+
+  #closeSidebar {
+      font-size: 24px;
+      cursor: pointer;
+  }
+
+  .mobile-sidebar ul {
+      list-style: none;
+      padding: 0;
+  }
+
+  .mobile-sidebar ul li {
+      padding: 12px 0;
+      border-bottom: 1px solid #eee;
+      cursor: pointer;
+  }
+
+  .mobile-sidebar ul li:hover {
+      background-color: rgb(236, 238, 241);
+      color: #4c346b;
+  }
+
+  @media (max-width: 768px) {
+      .content {
+          padding-top: 0;
+          margin-top: 0;
+      }
+
+      .content h2 {
+          margin-top: 200px;
+          margin-bottom: 5px;
+      }
+  }
+
+  /* Show only on mobile */
+  @media (min-width: 769px) {
+      .mobile-sidebar {
+          display: none;
+      }
+  }
+
+  @media (max-width: 768px) {
+      .sidebar {
+          display: none !important;
+      }
+  }
+
+  @media (max-width: 1024px) {
+      .products {
+          grid-template-columns: repeat(2, 1fr);
+      }
+  }
+
+  @media (max-width: 768px) {
+      .nav-links {
+          display: none;
+          flex-direction: column;
+          width: 80%;
+          background: rgba(72, 3, 147, 0.6);
+          margin-top: 10px;
+          padding: 10px 0;
+      }
+
+      .nav-links.active {
+          display: flex;
+      }
+
+      .store-icon,
+      .hamburger {
+          display: block;
+      }
+
+      .nav-actions {
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          margin-top: 10px;
+      }
+
+      .products {
+          grid-template-columns: repeat(2, 1fr);
+      }
+
+  }
+
+  @media (max-width: 768px) {
+      .nav-top {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 8px 15px;
+      }
+
+      .nav-icons {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+      }
+
+      .nav-icons img {
+          margin-left: 20px;
+          width: 30px;
+          height: 30px;
+          cursor: pointer;
+      }
+
+      .cart-icon img {
+          position: static;
+          width: 30px;
+          height: 30px;
+          margin-left: 10px;
+          transform: none;
+      }
+  }
+
+  /* ✅ Cart icon effect only on mobile */
+  @media (max-width: 768px) {
+      .cart-icon img {
+          transition: transform 0.3s ease, filter 0.3s ease;
+      }
+
+      .cart-icon img:active {
+          transform: scale(1.2);
+          filter: brightness(1.2);
+      }
+  }
+
+  @media (max-width: 480px) {
+      .products {
+          grid-template-columns: 1fr;
+      }
+
+      .nav-actions {
+          flex-direction: column;
+          align-items: center;
+      }
+
   }
