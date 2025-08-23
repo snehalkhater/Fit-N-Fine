@@ -5,30 +5,134 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Home</title>
+  <link rel="stylesheet" href="./css/home.css">
+  <style>
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: -260px;
+      /* hidden by default */
+      width: 240px;
+      height: 100%;
+      background: rgba(72, 3, 147, 0.6);
+      box-shadow: 2px 0 6px rgba(0, 0, 0, 0.2);
+      transition: left 0.3s ease-in-out;
+      padding: 20px;
+      z-index: 2000;
+    }
+
+    .sidebar.active {
+      left: 0;
+    }
+
+    .sidebar ul {
+      list-style: none;
+      padding: 0;
+      margin-top: 50px;
+    }
+
+    .sidebar li {
+      margin: 15px 0;
+    }
+
+    .sidebar a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: bold;
+      display: block;
+      padding: 10px;
+      border-radius: 6px;
+    }
+
+    .sidebar a:hover {
+      background: white;
+      color: #4c346b;
+    }
+
+    .close-btn {
+      font-size: 26px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      color: #fff;
+    }
+
+    .sidebar-btn {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #c2a0ee;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 80px;
+      border-color: #fff;
+      transition: background 0.3s;
+    }
+
+
+    /* Hamburger (hidden on desktop by default) */
+    .hamburger {
+      display: none;
+      font-size: 28px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: #ffffff;
+    }
+
+    /* Mobile view */
+    @media (max-width: 768px) {
+      nav .nav-links {
+        display: none;
+        /* hide desktop links */
+      }
+
+      .hamburger {
+        display: block;
+        /* show hamburger */
+      }
+    }
+  </style>
 </head>
-<link rel="stylesheet" href="./css/home.css">
+
 <body>
   <div class="hero-section">
-<nav>
-  <div class="logo">
-    <img src="./images/anytime-fitness-logo.png" alt="logo-img">
-  </div>
+    <nav>
+      <div class="logo">
+        <img src="./images/anytime-fitness-logo.png" alt="logo-img">
+      </div>
 
-  <!-- Hamburger -->
-  <button class="hamburger" id="hamburgerBtn" aria-label="Open menu">☰</button>
+      <!-- Hamburger -->
+      <button class="hamburger" id="hamburgerBtn" aria-label="Open menu">☰</button>
 
-  <ul class="nav-links" id="navLinks">
-    <li><a href="./index.html">Home</a></li>
-    <li><a href="./page/workout.html">Workout</a></li>
-    <li><a href="./page/plan.html">Plan</a></li>
-    <li><a href="./page/healthy.html">Healthy Living</a></li>
-    <li><a href="./page/trainer.html">Personal Trainer</a></li>
-    <li><a href="#">Nutrition</a></li>
-  </ul>
+      <!-- Desktop nav -->
+      <ul class="nav-links">
+        <li><a href="./index.html">Home</a></li>
+        <li><a href="./page/workout.html">Workout</a></li>
+        <li><a href="./page/plan.html">Plan</a></li>
+        <li><a href="./page/healthy.html">Healthy Living</a></li>
+        <li><a href="./page/trainer.html">Personal Trainer</a></li>
+        <li><a href="./page/nutrition.html">Nutrition</a></li>
+      </ul>
 
-  <a href="#" class="button">Try Us For Free</a>
-</nav>
+      <a href="#" class="button">Try Us For Free</a>
+    </nav>
 
+    <!-- Mobile Sidebar -->
+    <div class="sidebar" id="mobileSidebar">
+      <button class="close-btn" id="closeSidebar">&times;</button>
+      <ul>
+        <li><a href="./index.html">Home</a></li>
+        <li><a href="./page/workout.html">Workout</a></li>
+        <li><a href="./page/plan.html">Plan</a></li>
+        <li><a href="./page/healthy.html">Healthy Living</a></li>
+        <li><a href="./page/trainer.html">Personal Trainer</a></li>
+        <li><a href="./page/nutrition.html">Nutrition</a></li>
+      </ul>
+      <a href="#" class="sidebar-btn">Try Us For Free</a>
+    </div>
     <div class="home-img">
       <img src="./images/home-page.jpg" alt="home-img">
     </div>
@@ -77,9 +181,10 @@
         effective workouts. The workout routines are designed using practical knowledge and expertise to help you
         achieve your fitness goals and build a community.
       </p>
-      <button class="map-button" onclick="window.open('https://www.google.com/maps/search/fitness+center+near+me/', '_blank')">
-    Find Nearby Fitness Center for Guidance
-  </button>
+      <button class="map-button"
+        onclick="window.open('https://www.google.com/maps/search/fitness+center+near+me/', '_blank')">
+        Find Nearby Fitness Center for Guidance
+      </button>
     </section>
 
     <section class="getting-started">
@@ -120,71 +225,27 @@
       </div>
     </section>
 
- <footer class="purple-footer">
-        <div class="footer-container">
 
-            <!-- Logo -->
-            <div class="footer-logo">
-                <img src="./images/anytime-fitness-logo.png" alt="Anytime Fitness Logo">
-                <!-- Second image below the logo -->
-                <img src="./images/healthy.jpg" alt="Fitness Banner" class="secondary-img">
-            </div>
+    <script>
+      const hamburger = document.getElementById('hamburgerBtn');
+      const sidebar = document.getElementById('mobileSidebar');
+      const closeSidebar = document.getElementById('closeSidebar');
 
-            <!-- About -->
-            <div class="footer-about">
-                <h3>Anytime Fitness</h3>
-                <p>Your health is our priority. Train with us for a better, stronger, and healthier lifestyle—anytime,
-                    anywhere.</p>
-                <div class="social-icons">
-                    <a href="https://www.facebook.com"><img src="./images/facebook.png" alt="Facebook"></a>
-                    <a href="https://www.instagram.com"><img src="./images/instagram.png" alt="Instagram"></a>
-                    <a href="https://www.twitter.com"><img src="./images/twitter.png" alt="Twitter"></a>
-                    <a href="https://www.youtube.com"><img src="./images/youtube.png" alt="YouTube"></a>
-                </div>
-            </div>
+      hamburger.addEventListener('click', () => {
+        sidebar.classList.add('active');
+      });
 
-            <!-- Links -->
-            <div class="footer-links">
-                <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Programs</a></li>
-                    <li><a href="#">Workout</a></li>
-                    <li><a href="#">Healthy Living</a></li>
-                    <li><a href="#">Personal Trainer</a></li>
-                </ul>
-            </div>
+      closeSidebar.addEventListener('click', () => {
+        sidebar.classList.remove('active');
+      });
 
-            <!-- Contact -->
-            <div class="footer-contact">
-                <h4>Contact Us</h4>
-                <ul>
-                    <li><a href="#">📍 123 Gy Street, Mumbai</a></li>
-                    <li><a href="tel:+919876543210">📞 +91 98765 43210</a></li>
-                    <li><a href="mailto:info@anytimefitness.com">✉ info@anytimefitness.com</a></li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="footer-bottom">
-            &copy; 2025 Anytime Fitness. All Rights Reserved.
-        </div>
-    </footer>
-<script>
-  const hamburger = document.getElementById('hamburgerBtn');
-  const navLinks = document.getElementById('navLinks');
-
-  hamburger.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
-  });
-
-  // Close menu when a link is clicked
-  navLinks.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      navLinks.classList.remove('active');
-    });
-  });
-</script>
-
+      // Close sidebar when clicking a link
+      sidebar.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          sidebar.classList.remove('active');
+        });
+      });
+    </script>
 </body>
+
 </html>
