@@ -2,11 +2,12 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Home</title>
-  <link rel="stylesheet" href="./css/home.css">
+  <link rel="stylesheet" href="./css/home.css" />
   <style>
+    /* === Existing sidebar & responsive styles (kept as you had them) === */
     .sidebar {
       position: fixed;
       top: 0;
@@ -71,7 +72,6 @@
       transition: background 0.3s;
     }
 
-
     /* Hamburger (hidden on desktop by default) */
     .hamburger {
       display: none;
@@ -94,158 +94,498 @@
         /* show hamburger */
       }
     }
+
+    @media (max-width: 768px) {
+      .home-img {
+        height: auto;
+      }
+
+      .home-img img {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+      }
+    }
+
+    /* ========== AUTH MODAL (unique class names so no conflicts) ========== */
+    .auth-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.55);
+      z-index: 6000;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .auth-modal.open {
+      display: flex;
+    }
+
+    .auth-modal__content {
+      width: 100%;
+      max-width: 420px;
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 22px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+      position: relative;
+      animation: authScaleIn 0.18s ease;
+    }
+
+    .auth-close {
+      position: absolute;
+      top: 10px;
+      right: 12px;
+      font-size: 24px;
+      border: none;
+      background: none;
+      cursor: pointer;
+      color: #333;
+      line-height: 1;
+    }
+
+    .auth-tabs {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+
+    .auth-tab {
+      flex: 1;
+      padding: 10px 12px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+      background: #f3f3f3;
+    }
+
+    .auth-tab.active {
+      background: linear-gradient(90deg, #5f2ea6, #8e3ccf);
+      color: #fff;
+    }
+
+    .auth-forms .auth-form {
+      display: none;
+    }
+
+    .auth-forms .auth-form.active {
+      display: block;
+    }
+
+    .auth-form input {
+      width: 100%;
+      padding: 10px 12px;
+      margin: 8px 0;
+      border-radius: 6px;
+      border: 1px solid #dcdcdc;
+      box-sizing: border-box;
+    }
+
+    .auth-form .submit-btn {
+      width: 100%;
+      padding: 10px 12px;
+      margin-top: 12px;
+      border: none;
+      border-radius: 8px;
+      background: linear-gradient(90deg, #4c0a91, #8e3ccf);
+      color: #fff;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .auth-note {
+      margin-top: 10px;
+      font-size: 13px;
+      color: #666;
+      text-align: center;
+    }
+
+    @keyframes authScaleIn {
+      from {
+        transform: scale(0.98);
+        opacity: 0;
+      }
+
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    /* Blur & block interactions on page while modal open (safe wrapper) */
+    body.auth-open {
+      overflow: hidden;
+    }
+
+    body.auth-open #mainContent {
+      filter: blur(6px);
+      pointer-events: none;
+      user-select: none;
+      transition: filter 0.18s ease;
+    }
+
+    /* Ensure modal child elements remain interactive */
+    .auth-modal__content,
+    .auth-modal__content * {
+      pointer-events: auto;
+    }
+
+    /* small responsive tweak for modal */
+    @media (max-width: 420px) {
+      .auth-modal__content {
+        padding: 16px;
+      }
+
+      .auth-tabs {
+        gap: 6px;
+      }
+    }
   </style>
 </head>
 
 <body>
-  <div class="hero-section">
-    <nav>
-      <div class="logo">
-        <img src="./images/anytime-fitness-logo.png" alt="logo-img">
+  <!-- Wrap the entire page content in #mainContent so the blur can be applied safely -->
+  <div id="mainContent">
+    <div class="hero-section">
+      <nav>
+        <div class="logo">
+          <img src="./images/anytime-fitness-logo.png" alt="logo-img">
+        </div>
+
+        <!-- Hamburger -->
+        <button class="hamburger" id="hamburgerBtn" aria-label="Open menu">☰</button>
+
+        <!-- Desktop nav -->
+        <ul class="nav-links">
+          <li><a href="./index.html">Home</a></li>
+          <li><a href="./page/workout.html">Workout</a></li>
+          <li><a href="./page/plan.html">Plan</a></li>
+          <li><a href="./page/healthy.html">Healthy Living</a></li>
+          <li><a href="./page/trainer.html">Personal Trainer</a></li>
+          <li><a href="./page/nutrition.html">Nutrition</a></li>
+        </ul>
+
+        <a href="#" class="button">Try Us For Free</a>
+      </nav>
+
+      <!-- Mobile Sidebar -->
+      <div class="sidebar" id="mobileSidebar">
+        <button class="close-btn" id="closeSidebar">&times;</button>
+        <ul>
+          <li><a href="./index.html">Home</a></li>
+          <li><a href="./page/workout.html">Workout</a></li>
+          <li><a href="./page/plan.html">Plan</a></li>
+          <li><a href="./page/healthy.html">Healthy Living</a></li>
+          <li><a href="./page/trainer.html">Personal Trainer</a></li>
+          <li><a href="./page/nutrition.html">Nutrition</a></li>
+        </ul>
+        <a href="#" class="sidebar-btn">Try Us For Free</a>
       </div>
 
-      <!-- Hamburger -->
-      <button class="hamburger" id="hamburgerBtn" aria-label="Open menu">☰</button>
-
-      <!-- Desktop nav -->
-      <ul class="nav-links">
-        <li><a href="./index.html">Home</a></li>
-        <li><a href="./page/workout.html">Workout</a></li>
-        <li><a href="./page/plan.html">Plan</a></li>
-        <li><a href="./page/healthy.html">Healthy Living</a></li>
-        <li><a href="./page/trainer.html">Personal Trainer</a></li>
-        <li><a href="./page/nutrition.html">Nutrition</a></li>
-      </ul>
-
-      <a href="#" class="button">Try Us For Free</a>
-    </nav>
-
-    <!-- Mobile Sidebar -->
-    <div class="sidebar" id="mobileSidebar">
-      <button class="close-btn" id="closeSidebar">&times;</button>
-      <ul>
-        <li><a href="./index.html">Home</a></li>
-        <li><a href="./page/workout.html">Workout</a></li>
-        <li><a href="./page/plan.html">Plan</a></li>
-        <li><a href="./page/healthy.html">Healthy Living</a></li>
-        <li><a href="./page/trainer.html">Personal Trainer</a></li>
-        <li><a href="./page/nutrition.html">Nutrition</a></li>
-      </ul>
-      <a href="#" class="sidebar-btn">Try Us For Free</a>
-    </div>
-    <div class="home-img">
-      <img src="./images/home-page.jpg" alt="home-img">
-    </div>
-
-    <section class="img-slider">
-      <div class="slider-container">
-        <h2>Change Your Life Style</h2>
-        <div class="slide-box">
-          <div class="slide-image">
-            <img src="./images/slide1.jpg" alt="Workout 1" />
-          </div>
-          <div class="slide-image">
-            <img src="./images/slide2.jpg" alt="Workout 2" />
-          </div>
-          <div class="slide-image">
-            <img src="./images/slide3.jpg" alt="Weight Lifting" />
-          </div>
-          <div class="slide-image">
-            <img src="./images/slide4.jpg" alt="Running" />
-          </div>
-          <div class="slide-image">
-            <img src="./images/slide5.jpg" alt="Outdoor Training" />
-          </div>
-
-          <div class="slide-image">
-            <img src="./images/slide1.jpg" alt="Workout 1" />
-          </div>
-          <div class="slide-image">
-            <img src="./images/slide2.jpg" alt="Workout 2" />
-          </div>
-          <div class="slide-image">
-            <img src="./images/slide3.jpg" alt="Weight Lifting" />
-          </div>
-          <div class="slide-image">
-            <img src="./images/slide4.jpg" alt="Running" />
-          </div>
-          <div class="slide-image">
-            <img src="./images/slide5.jpg" alt="Outdoor Training" />
-          </div>
-
-    </section>
-
-    <section class="info">
-      <h2> Customized Workout Plans for Every Individual</h2>
-      <p> Whether you're a beginner or a fitness enthusiast, our expert trainers lead groups as well as personalized,
-        effective workouts. The workout routines are designed using practical knowledge and expertise to help you
-        achieve your fitness goals and build a community.
-      </p>
-      <button class="map-button"
-        onclick="window.open('https://www.google.com/maps/search/fitness+center+near+me/', '_blank')">
-        Find Nearby Fitness Center for Guidance
-      </button>
-    </section>
-
-    <section class="getting-started">
-      <h2>Your Fitness Journey Starts Here</h2>
-      <div class="steps-container">
-        <div class="step-box">
-          <div class="step-icon">
-            <img src="./images/signup.png" alt="Sign Up Icon" />
-          </div>
-          <span class="step-number">1</span>
-          <h3>Sign Up</h3>
-          <p>Join online or at your nearest Anytime Fitness location.</p>
-        </div>
-        <div class="step-box">
-          <div class="step-icon">
-            <img src="./images/office.png" alt="Trainer Icon" />
-          </div>
-          <span class="step-number">2</span>
-          <h3>Meet Your Trainer</h3>
-          <p>Get a personal consultation and set your fitness goals.</p>
-        </div>
-        <div class="step-box">
-          <div class="step-icon">
-            <img src="./images/meeting.png" alt="Plan Icon" />
-          </div>
-          <span class="step-number">3</span>
-          <h3>Follow Your Plan</h3>
-          <p>Start training with a customized workout and nutrition guide.</p>
-        </div>
-        <div class="step-box">
-          <div class="step-icon">
-            <img src="./images/track-and-field.png" alt="Progress Icon" />
-          </div>
-          <span class="step-number">4</span>
-          <h3>Track & Transform</h3>
-          <p>See progress, stay motivated, and enjoy a healthier life!</p>
-        </div>
+      <div class="home-img">
+        <img src="./images/home-page.jpg" alt="home-img">
       </div>
-    </section>
 
+      <section class="img-slider">
+        <div class="slider-container">
+          <h2>Change Your Life Style</h2>
+          <div class="slide-box">
+            <div class="slide-image">
+              <img src="./images/slide1.jpg" alt="Workout 1" />
+            </div>
+            <div class="slide-image">
+              <img src="./images/slide2.jpg" alt="Workout 2" />
+            </div>
+            <div class="slide-image">
+              <img src="./images/slide3.jpg" alt="Weight Lifting" />
+            </div>
+            <div class="slide-image">
+              <img src="./images/slide4.jpg" alt="Running" />
+            </div>
+            <div class="slide-image">
+              <img src="./images/slide5.jpg" alt="Outdoor Training" />
+            </div>
 
-    <script>
-      const hamburger = document.getElementById('hamburgerBtn');
-      const sidebar = document.getElementById('mobileSidebar');
-      const closeSidebar = document.getElementById('closeSidebar');
+            <!-- repeated images (if you intended a looping slider) -->
+            <div class="slide-image">
+              <img src="./images/slide1.jpg" alt="Workout 1" />
+            </div>
+            <div class="slide-image">
+              <img src="./images/slide2.jpg" alt="Workout 2" />
+            </div>
+            <div class="slide-image">
+              <img src="./images/slide3.jpg" alt="Weight Lifting" />
+            </div>
+            <div class="slide-image">
+              <img src="./images/slide4.jpg" alt="Running" />
+            </div>
+            <div class="slide-image">
+              <img src="./images/slide5.jpg" alt="Outdoor Training" />
+            </div>
+          </div> <!-- /.slide-box -->
+        </div> <!-- /.slider-container -->
+      </section>
 
+      <section class="info">
+        <h2> Customized Workout Plans for Every Individual</h2>
+        <p> Whether you're a beginner or a fitness enthusiast, our expert trainers lead groups as well as personalized,
+          effective workouts. The workout routines are designed using practical knowledge and expertise to help you
+          achieve your fitness goals and build a community.
+        </p>
+        <button class="map-button"
+          onclick="window.open('https://www.google.com/maps/search/fitness+center+near+me/', '_blank')">
+          Find Nearby Fitness Center for Guidance
+        </button>
+      </section>
+
+      <section class="getting-started">
+        <h2>Your Fitness Journey Starts Here</h2>
+        <div class="steps-container">
+          <div class="step-box">
+            <div class="step-icon">
+              <img src="./images/signup.png" alt="Sign Up Icon" />
+            </div>
+            <span class="step-number">1</span>
+            <h3>Sign Up</h3>
+            <p>Join online or at your nearest Anytime Fitness location.</p>
+          </div>
+          <div class="step-box">
+            <div class="step-icon">
+              <img src="./images/office.png" alt="Trainer Icon" />
+            </div>
+            <span class="step-number">2</span>
+            <h3>Meet Your Trainer</h3>
+            <p>Get a personal consultation and set your fitness goals.</p>
+          </div>
+          <div class="step-box">
+            <div class="step-icon">
+              <img src="./images/meeting.png" alt="Plan Icon" />
+            </div>
+            <span class="step-number">3</span>
+            <h3>Follow Your Plan</h3>
+            <p>Start training with a customized workout and nutrition guide.</p>
+          </div>
+          <div class="step-box">
+            <div class="step-icon">
+              <img src="./images/track-and-field.png" alt="Progress Icon" />
+            </div>
+            <span class="step-number">4</span>
+            <h3>Track & Transform</h3>
+            <p>See progress, stay motivated, and enjoy a healthier life!</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Footer Section -->
+      <footer class="footer">
+        <div class="footer-container">
+          <div class="footer-logo">
+            <img src="./images/anytime-fitness-logo.png" alt="Fitness Logo">
+            <p>Your Journey, Our Commitment</p>
+
+            <!-- WhatsApp Join Community -->
+            <div class="whatsapp-link">
+              <a href="https://chat.whatsapp.com/your-group-link" target="_blank">
+                <img src="./images/whatsapp.png" alt="WhatsApp"> Join Our Community
+              </a>
+            </div>
+          </div>
+
+          <div class="footer-links">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="./index.html">Home</a></li>
+              <li><a href="./page/workout.html">Workout</a></li>
+              <li><a href="./page/plan.html">Plan</a></li>
+              <li><a href="./page/healthy.html">Healthy Living</a></li>
+              <li><a href="./page/trainer.html">Personal Trainer</a></li>
+              <li><a href="./page/nutrition.html">Nutrition</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-contact">
+            <h4>Contact Us</h4>
+            <p>Email: info@fitnesshub.com</p>
+            <p>Phone: +91 98765 43210</p>
+            <div class="social-icons">
+              <a href="#"><img src="./images/facebook.png" alt="Facebook"></a>
+              <a href="#"><img src="./images/instagram.png" alt="Instagram"></a>
+              <a href="#"><img src="./images/twitter.png" alt="Twitter"></a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>© 2025 Anytime Fitness. All Rights Reserved.</p>
+        </div>
+      </footer>
+    </div> <!-- /.hero-section -->
+  </div> <!-- /#mainContent -->
+
+  <!-- ========== AUTH MODAL (inserted here so it doesn't wrap in #mainContent) ========== -->
+  <div class="auth-modal" id="authModal" aria-hidden="true">
+    <div class="auth-modal__content" role="dialog" aria-modal="true" aria-labelledby="authTitle">
+      <button class="auth-close" id="closeModal" aria-label="Close">&times;</button>
+
+      <div class="auth-tabs" role="tablist">
+        <button class="auth-tab active" id="authLoginTab" type="button" role="tab" aria-selected="true">Login</button>
+        <button class="auth-tab" id="authRegisterTab" type="button" role="tab" aria-selected="false">Register</button>
+      </div>
+
+      <div class="auth-forms">
+        <!-- LOGIN FORM -->
+        <!-- LOGIN FORM (visible by default) -->
+        <form id="authLoginForm" class="auth-form active"
+          onsubmit="event.preventDefault(); alert('Login successful!'); window.location.href='./index.html';">
+          <h3 id="authTitle" style="text-align:center; margin-bottom:6px">Welcome back</h3>
+          <input type="email" name="email" placeholder="Email" required />
+          <input type="password" name="password" placeholder="Password" required />
+          <button class="submit-btn" type="submit">Login</button>
+          <p class="auth-note">Don't have an account? Click "Register" above.</p>
+        </form>
+
+        <!-- REGISTER FORM (hidden until tab clicked) -->
+        <form id="authRegisterForm" class="auth-form"
+          onsubmit="event.preventDefault(); alert('Registration successful!'); window.location.href='./index.html';">
+          <h3 style="text-align:center; margin-bottom:6px">Create account</h3>
+          <input type="text" name="name" placeholder="Full name" required />
+          <input type="email" name="email" placeholder="Email" required />
+          <input type="password" name="password" placeholder="Password" required />
+          <button class="submit-btn" type="submit">Register</button>
+          <p class="auth-note">Already registered? Click "Login" above.</p>
+        </form>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== SCRIPTS ========== -->
+  <script>
+    /* ---------- Sidebar / Hamburger (your original behavior preserved) ---------- */
+    const hamburger = document.getElementById('hamburgerBtn');
+    const sidebar = document.getElementById('mobileSidebar');
+    const closeSidebar = document.getElementById('closeSidebar');
+
+    if (hamburger && sidebar) {
       hamburger.addEventListener('click', () => {
         sidebar.classList.add('active');
       });
-
+    }
+    if (closeSidebar && sidebar) {
       closeSidebar.addEventListener('click', () => {
         sidebar.classList.remove('active');
       });
+    }
 
-      // Close sidebar when clicking a link
+    // Close sidebar when clicking a link
+    if (sidebar) {
       sidebar.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
+        link.addEventListener('click', (e) => {
+          // allow links to navigate if they are external pages; but close sidebar anyway
           sidebar.classList.remove('active');
         });
       });
-    </script>
+    }
+
+    /* ---------- Auth modal logic (open/close, toggle tabs, blur page) ---------- */
+    (function () {
+      const modal = document.getElementById('authModal');
+      const openBtns = document.querySelectorAll('.button, .sidebar-btn'); // top nav and sidebar button
+      const closeBtn = document.getElementById('closeModal');
+      const loginTab = document.getElementById('authLoginTab');
+      const registerTab = document.getElementById('authRegisterTab');
+      const loginForm = document.getElementById('authLoginForm');
+      const registerForm = document.getElementById('authRegisterForm');
+
+      // open modal helper
+      function openModal(showRegister = false) {
+        if (!modal) return;
+        modal.classList.add('open');
+        document.body.classList.add('auth-open');
+        modal.setAttribute('aria-hidden', 'false');
+        // default to either login or register
+        if (showRegister) {
+          showRegisterTab();
+        } else {
+          showLoginTab();
+        }
+      }
+
+      // close modal helper
+      function closeModal() {
+        if (!modal) return;
+        modal.classList.remove('open');
+        document.body.classList.remove('auth-open');
+        modal.setAttribute('aria-hidden', 'true');
+      }
+
+      // tab controls
+      function showLoginTab() {
+        loginTab.classList.add('active');
+        registerTab.classList.remove('active');
+        loginForm.classList.add('active');
+        registerForm.classList.remove('active');
+        loginTab.setAttribute('aria-selected', 'true');
+        registerTab.setAttribute('aria-selected', 'false');
+      }
+
+      function showRegisterTab() {
+        registerTab.classList.add('active');
+        loginTab.classList.remove('active');
+        registerForm.classList.add('active');
+        loginForm.classList.remove('active');
+        registerTab.setAttribute('aria-selected', 'true');
+        loginTab.setAttribute('aria-selected', 'false');
+      }
+
+      // Attach open handlers (nav + sidebar)
+      openBtns.forEach(btn => {
+        btn.addEventListener('click', function (e) {
+          e.preventDefault();
+          // If clicked from sidebar, close sidebar first (nice UX)
+          if (sidebar && sidebar.classList.contains('active')) {
+            sidebar.classList.remove('active');
+          }
+          // If user clicked a "register" CTA (not present now), you can detect and open register tab
+          openModal(false);
+        });
+      });
+
+      // Close handlers
+      if (closeBtn) closeBtn.addEventListener('click', closeModal);
+
+      // Click outside content to close
+      if (modal) {
+        modal.addEventListener('click', function (e) {
+          if (e.target === modal) closeModal();
+        });
+      }
+
+      // ESC key to close
+      window.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && modal && modal.classList.contains('open')) {
+          closeModal();
+        }
+      });
+
+      // Tab click listeners
+      if (loginTab) loginTab.addEventListener('click', showLoginTab);
+      if (registerTab) registerTab.addEventListener('click', showRegisterTab);
+
+      // Optional: focus first input when opened
+      const observer = new MutationObserver(() => {
+        if (modal.classList.contains('open')) {
+          setTimeout(() => {
+            const firstInput = modal.querySelector('input');
+            if (firstInput) firstInput.focus();
+          }, 60);
+        }
+      });
+      if (modal) observer.observe(modal, { attributes: true, attributeFilter: ['class'] });
+    })();
+  </script>
 </body>
 
 </html>
