@@ -1,11 +1,135 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>cart page</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Cart</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; background: #f4f4f9; }
+    h1 { text-align: center; }
+    .cart-container { max-width: 900px; margin: auto; background: #fff; padding: 20px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+    table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+    th, td { padding: 12px; text-align: center; border-bottom: 1px solid #ddd; }
+    th { background: #6a1b9a; color: white; }
+    img { width: 60px; }
+    .actions button { padding: 5px 10px; margin: 0 2px; cursor: pointer; }
+    .total { text-align: right; margin-top: 20px; font-size: 20px; font-weight: bold; }
+    .empty { text-align: center; font-size: 18px; margin-top: 30px; }
+    .pay-btn {
+      display: block;
+      margin: 30px auto 10px;
+      padding: 12px 25px;
+      font-size: 18px;
+      background: #6a1b9a;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .pay-btn:hover { background: #8e3ccf; }
+  </style>
 </head>
 <body>
+  <h1>🛒 Your Cart</h1>
+  <div class="cart-container">
+    <table id="cartTable">
+      <thead>
+        <tr>
+          <th>Image</th>
+          <th>Product</th>
+          <th>Price</th>
+          <th>Quantity</th>
+          <th>Total</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody id="cartBody"></tbody>
+    </table>
+    <p class="total" id="cartTotal">Total: ₹0</p>
+    <p class="empty" id="emptyMsg" style="display:none;">Your cart is empty 🛍️</p>
     
+    <!-- Payment Button -->
+    <button class="pay-btn" id="payNow">Proceed to Payment</button>
+  </div>
+
+  <script>
+    function loadCart() {
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+      const cartBody = document.getElementById("cartBody");
+      const cartTotal = document.getElementById("cartTotal");
+      const emptyMsg = document.getElementById("emptyMsg");
+      const payBtn = document.getElementById("payNow");
+
+      cartBody.innerHTML = "";
+      let total = 0;
+
+      if (cart.length === 0) {
+        emptyMsg.style.display = "block";
+        cartTotal.style.display = "none";
+        payBtn.style.display = "none";
+        return;
+      } else {
+        emptyMsg.style.display = "none";
+        cartTotal.style.display = "block";
+        payBtn.style.display = "block";
+      }
+
+      cart.forEach((item, index) => {
+        let row = document.createElement("tr");
+        let itemTotal = item.price * item.quantity;
+        total += itemTotal;
+
+        row.innerHTML = `
+          <td><img src="${item.img}" alt="${item.name}"></td>
+          <td>${item.name}</td>
+          <td>₹${item.price}</td>
+          <td>
+            <button onclick="updateQty(${index}, -1)">➖</button>
+            ${item.quantity}
+            <button onclick="updateQty(${index}, 1)">➕</button>
+          </td>
+          <td>₹${itemTotal}</td>
+          <td><button onclick="deleteItem(${index})">❌ Remove</button></td>
+        `;
+        cartBody.appendChild(row);
+      });
+
+      cartTotal.innerText = `Total: ₹${total}`;
+    }
+
+    function updateQty(index, change) {
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+      cart[index].quantity += change;
+      if (cart[index].quantity <= 0) cart.splice(index, 1);
+      localStorage.setItem("cart", JSON.stringify(cart));
+      loadCart();
+    }
+
+    function deleteItem(index) {
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+      cart.splice(index, 1);
+      localStorage.setItem("cart", JSON.stringify(cart));
+      loadCart();
+    }
+
+    // Payment Button Click
+    document.getElementById("payNow").addEventListener("click", () => {
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+      if (cart.length === 0) {
+        alert("Your cart is empty! 🛍️");
+        return;
+      }
+
+      let total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+      alert(`💳 Payment of ₹${total} `);
+
+      // Clear cart after payment
+      localStorage.showItem("cart");
+      loadCart();
+    });
+
+    loadCart();
+  </script>
 </body>
 </html>
