@@ -5,16 +5,51 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Your Cart</title>
   <style>
-    body { font-family: Arial, sans-serif; margin: 20px; background: #f4f4f9; }
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background: #f4f4f9;
+    }
     h1 { text-align: center; }
-    .cart-container { max-width: 900px; margin: auto; background: #fff; padding: 20px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
-    table { width: 100%; border-collapse: collapse; margin-top: 20px; }
-    th, td { padding: 12px; text-align: center; border-bottom: 1px solid #ddd; }
-    th { background: #6a1b9a; color: white; }
-    img { width: 60px; }
-    .actions button { padding: 5px 10px; margin: 0 2px; cursor: pointer; }
-    .total { text-align: right; margin-top: 20px; font-size: 20px; font-weight: bold; }
-    .empty { text-align: center; font-size: 18px; margin-top: 30px; }
+    .cart-container {
+      max-width: 900px;
+      margin: auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    th, td {
+      padding: 12px;
+      text-align: center;
+      border-bottom: 1px solid #ddd;
+    }
+    th {
+      background: #6a1b9a;
+      color: white;
+    }
+    img { width: 60px; border-radius: 6px; }
+    .actions button {
+      padding: 5px 10px;
+      margin: 0 2px;
+      cursor: pointer;
+    }
+    .total {
+      text-align: right;
+      margin-top: 20px;
+      font-size: 20px;
+      font-weight: bold;
+    }
+    .empty {
+      text-align: center;
+      font-size: 18px;
+      margin-top: 30px;
+    }
     .pay-btn {
       display: block;
       margin: 30px auto 10px;
@@ -23,11 +58,104 @@
       background: #6a1b9a;
       color: white;
       border: none;
-      border-radius: 6px;
+      border-radius: 8px;
       cursor: pointer;
       transition: 0.3s;
     }
     .pay-btn:hover { background: #8e3ccf; }
+
+    /* ✅ Mobile view */
+    @media (max-width: 600px) {
+      body { margin: 8px; }
+      .cart-container { padding: 10px; }
+
+      /* Convert table into cards */
+      table, thead, tbody, th, td, tr { display: block; width: 95%; justify-content: center; align-items: center;}
+      thead { display: none; }
+      
+      tr {
+        background: #fff;
+        border: 1px solid #ddd;
+        border-radius: 12px;
+        margin-bottom: 15px;
+        padding: 15px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+      }
+
+      td {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 8px 0;
+        border: none;
+        font-size: 15px;
+      }
+
+      td::before {
+        content: attr(data-label);
+        font-weight: bold;
+        color: #6a1b9a;
+        flex: 1;
+        text-align: left;
+        padding-right: 10px;
+      }
+
+      /* Product image */
+      td[data-label="Image"] {
+        justify-content: center;
+        padding-bottom: 10px;
+      }
+      td[data-label="Image"]::before { content: ""; }
+      td[data-label="Image"] img {
+        width: 90px;
+        height: auto;
+        border-radius: 8px;
+      }
+
+      /* Quantity buttons */
+      td[data-label="Quantity"] {
+        flex-direction: row;
+        align-items: flex-start;
+      }
+      td[data-label="Quantity"] button {
+        padding: 5px 10px;
+        background: #6a1b9a;
+        color: #fff;
+        border: none;
+        border-radius: 6px;
+        margin: 3px 0;
+        font-size: 14px;
+      }
+
+      /* Remove button full width */
+      td[data-label="Action"] {
+        justify-content: center;
+        margin-top: 10px;
+      }
+      td[data-label="Action"] button {
+        width: 40%;
+        background: #6a1b9a;
+        color: #fff;
+        padding: 10px;
+        border: none;
+        border-radius: 8px;
+        font-size: 15px;
+      }
+            td[data-label="Action"] button:hover {
+        background: #8e3ccf;
+            }
+            
+      .total {
+        text-align: center;
+        font-size: 18px;
+        margin-top: 15px;
+      }
+      .pay-btn {
+        width: 50%;
+        font-size: 16px;
+        margin-top: 20px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -81,16 +209,16 @@
         total += itemTotal;
 
         row.innerHTML = `
-          <td><img src="${item.img}" alt="${item.name}"></td>
-          <td>${item.name}</td>
-          <td>₹${item.price}</td>
-          <td>
+          <td data-label="Image"><img src="${item.img}" alt="${item.name}"></td>
+          <td data-label="Product">${item.name}</td>
+          <td data-label="Price">₹${item.price}</td>
+          <td data-label="Quantity">
             <button onclick="updateQty(${index}, -1)">➖</button>
             ${item.quantity}
             <button onclick="updateQty(${index}, 1)">➕</button>
           </td>
-          <td>₹${itemTotal}</td>
-          <td><button onclick="deleteItem(${index})">❌ Remove</button></td>
+          <td data-label="Total">₹${itemTotal}</td>
+          <td data-label="Action"><button onclick="deleteItem(${index})">❌ Remove</button></td>
         `;
         cartBody.appendChild(row);
       });
@@ -122,10 +250,10 @@
       }
 
       let total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-      alert(`💳 Payment of ₹${total} `);
+      alert(`💳 Payment of ₹${total} successful!`);
 
       // Clear cart after payment
-      localStorage.showItem("cart");
+      localStorage.removeItem("cart");
       loadCart();
     });
 
