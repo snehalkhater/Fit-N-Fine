@@ -54,7 +54,128 @@
        color: #fff;
        text-decoration-line: underline;
    }
+     /* === Existing sidebar & responsive styles (kept as you had them) === */
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: -260px;
+    /* hidden by default */
+    width: 240px;
+    height: 100%;
+    background: rgba(72, 3, 147, 0.6);
+    box-shadow: 2px 0 6px rgba(0, 0, 0, 0.2);
+    transition: left 0.3s ease-in-out;
+    padding: 20px;
+    z-index: 2000;
+  }
 
+  .sidebar.active {
+    left: 0;
+  }
+
+  .sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 50px;
+  }
+
+  .sidebar li {
+    margin: 15px 0;
+  }
+
+  .sidebar a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: bold;
+    display: block;
+    padding: 10px;
+    border-radius: 6px;
+  }
+
+  .sidebar a:hover {
+    background: white;
+    color: #4c346b;
+  }
+
+  .close-btn {
+    font-size: 26px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    color: #fff;
+  }
+
+  .sidebar-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #c2a0ee;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 80px;
+    border-color: #fff;
+    transition: background 0.3s;
+  }
+
+  /* Hamburger (hidden on desktop by default) */
+  .hamburger {
+    display: none;
+    font-size: 28px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #ffffff;
+  }
+
+  /* Mobile view */
+  @media (max-width: 768px) {
+    nav .nav-links {
+      display: none;
+      /* hide desktop links */
+    }
+
+    .hamburger {
+      display: block;
+      /* show hamburger */
+    }
+  }
+
+  @media (max-width: 768px) {
+    .home-img {
+      height: auto;
+    }
+
+    .home-img img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+    }
+
+    .step-card img {
+      justify-content: center;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .program-image {
+      margin-top: 1rem;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .program-image img {
+      max-width: 90%;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .button {
+      display: none !important;
+    }
+  }
    :root {
        --main-color: #443;
        --purple: #7e57c2;
