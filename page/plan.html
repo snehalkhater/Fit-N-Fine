@@ -7,219 +7,392 @@
   <title>Program</title>
   <link rel="stylesheet" href="./../css/plan.css">
 </head>
+<style>
+  /* === Existing sidebar & responsive styles (kept as you had them) === */
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: -260px;
+    /* hidden by default */
+    width: 240px;
+    height: 100%;
+    background: rgba(72, 3, 147, 0.6);
+    box-shadow: 2px 0 6px rgba(0, 0, 0, 0.2);
+    transition: left 0.3s ease-in-out;
+    padding: 20px;
+    z-index: 2000;
+  }
+
+  .sidebar.active {
+    left: 0;
+  }
+
+  .sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 50px;
+  }
+
+  .sidebar li {
+    margin: 15px 0;
+  }
+
+  .sidebar a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: bold;
+    display: block;
+    padding: 10px;
+    border-radius: 6px;
+  }
+
+  .sidebar a:hover {
+    background: white;
+    color: #4c346b;
+  }
+
+  .close-btn {
+    font-size: 26px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    color: #fff;
+  }
+
+  .sidebar-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #c2a0ee;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 80px;
+    border-color: #fff;
+    transition: background 0.3s;
+  }
+
+  /* Hamburger (hidden on desktop by default) */
+  .hamburger {
+    display: none;
+    font-size: 28px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #ffffff;
+  }
+
+  /* Mobile view */
+  @media (max-width: 768px) {
+    nav .nav-links {
+      display: none;
+      /* hide desktop links */
+    }
+
+    .hamburger {
+      display: block;
+      /* show hamburger */
+    }
+  }
+
+  @media (max-width: 768px) {
+    .home-img {
+      height: auto;
+    }
+
+    .home-img img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+    }
+
+    .step-card img {
+      justify-content: center;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .program-image {
+      margin-top: 1rem;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .program-image img {
+      max-width: 90%;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .button {
+      display: none !important;
+    }
+  }
+</style>
 
 <body>
-  <nav>
-    <div class="logo">
-      <img src="./../images/anytime-fitness-logo.png" alt="logo-img">
-    </div>
-    <ul class="nav-links">
-      <li><a href="./../index.html">Home</a></li>
-      <li><a href="./../page/workout.html">Workout</a></li>
-      <li><a href="./../page/plan.html">Plan</a></li>
-      <li><a href="./../page/healthy.html">Healthy Living</a></li>
-      <li><a href="./../page/trainer.html">Personal Trainer</a></li>
-      <li><a href="./../page/nutrition.html">Nutrition</a></li>
-    </ul>
-    <a href="#" class="button">Try Us For Free</a>
-  </nav>
-
-  <section class="program-section" id="program">
-    <h1 class="heading">Plan's <span>how to get a perfect plan</span></h1>
-    <div class="program-row">
-      <div class="program-content">
-        <h3 class="title">Your Journey Starts With A Plan</h3>
-        <p>
-          Whether you're aiming to lose weight, gain muscle, or just feel better, selecting the right program is
-          essential.
-          Our platform makes it easy with personalized, expert-backed plans to keep you motivated and on track.
-        </p>
-        <div class="steps-box">
-          <div class="step-card">
-            <img src="./../images/trainer.png" alt="Step 1" />
-            <h3>Step 1</h3>
-            <p>Choose your goal (weight loss, gain, fitness)</p>
-          </div>
-          <div class="step-card">
-            <img src="./../images/nutrition.png" alt="Step 2" />
-            <h3>Step 2</h3>
-            <p>Select the plan duration: 1, 3, or 6 months</p>
-          </div>
-          <div class="step-card">
-            <img src="./../images/community.png" alt="Step 3" />
-            <h3>Step 3</h3>
-            <p>Join & start training with our expert team</p>
-          </div>
-        </div>
-      </div>
-      <div class="program-image">
-        <img src="./../images/program-side2.jpg" alt="Perfect Plan" />
-      </div>
-    </div>
-  </section>
-
-  <!-- Weight Loss Plans -->
-  <section class="plans-section">
-    <h2>Choose Your Weight Loss Plan</h2>
-    <div class="card-container">
-      <div class="plan-card">
-        <img src="./../images/weightloss1.jpg" alt="1 Month Plan">
-        <div class="plan-content">
-          <div class="plan-title">1 Month Plan</div>
-          <div class="plan-desc">Quick start with personalized diet & workouts to kick off your journey.</div>
-          <a href="#" class="pay-btn">Get Plan</a>
-        </div>
-      </div>
-      <div class="plan-card">
-        <img src="./../images/weightloss2.jpg" alt="3 Month Plan">
-        <div class="plan-content">
-          <div class="plan-title">3 Month Plan</div>
-          <div class="plan-desc">Balanced approach with sustainable results and expert guidance.</div>
-          <a href="#" class="pay-btn">Get Plan</a>
-        </div>
-      </div>
-      <div class="plan-card">
-        <img src="./../images/weightloss3.jpg" alt="6 Month Plan">
-        <div class="plan-content">
-          <div class="plan-title">6 Month Plan</div>
-          <div class="plan-desc">Complete transformation with long-term support and weekly tracking.</div>
-          <a href="#" class="pay-btn">Get Plan</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Weight Gain Plans -->
-  <section class="plans-section">
-    <h2>Choose Your Weight Gain Plan</h2>
-    <div class="card-container">
-      <div class="plan-card">
-        <img src="./../images/weightgain1.jpg" alt="1 Month Gain Plan">
-        <div class="plan-content">
-          <div class="plan-title">1 Month Plan</div>
-          <div class="plan-desc">Kickstart muscle growth with targeted nutrition and training support.</div>
-          <a href="#" class="pay-btn">Get Plan</a>
-        </div>
-      </div>
-      <div class="plan-card">
-        <img src="./../images/weightgain2.jpg" alt="3 Month Gain Plan">
-        <div class="plan-content">
-          <div class="plan-title">3 Month Plan</div>
-          <div class="plan-desc">Build strength with structured workouts and expert advice.</div>
-          <a href="#" class="pay-btn">Get Plan</a>
-        </div>
-      </div>
-      <div class="plan-card">
-        <img src="./../images/weightgain3.jpg" alt="6 Month Gain Plan">
-        <div class="plan-content">
-          <div class="plan-title">6 Month Plan</div>
-          <div class="plan-desc">Sustainable bulk-up plan with full-time coaching and assessments.</div>
-          <a href="#" class="pay-btn">Get Plan</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="plan-section">
-    <div class="container">
-      <h1 class="section-title">Choose Your Fitness Plan Workout + Nutrition</h1>
-      <div class="plans-container">
-        <div class="plan-card">
-          <div class="badge">Starter</div>
-          <h2>3 MONTHS</h2>
-          <div class="original-price">₹9,097</div>
-          <div class="price">₹5,490</div>
-          <div class="price-note">+ ₹1070 Taxes & Fees (₹1830/mo*)</div>
-          <ul class="features">
-            <li><span class="highlight">₹500 Off</span> applied</li>
-            <li>2 Free PT Sessions</li>
-            <li>10 Days Membership Pause</li>
-            <li>₹500 OFF on Activewear</li>
-            <li>30 ELITE Credits</li>
-            <li>Transfer within 15 Days</li>
-          </ul>
-          <button class="buy-btn">BUY NOW</button>
-        </div>
-        <div class="plan-card">
-          <div class="badge">Most Popular</div>
-          <h2>6 MONTHS</h2>
-          <div class="original-price">₹12,000</div>
-          <div class="price">₹6,990</div>
-          <div class="price-note">+ ₹1364 Taxes & Fees (₹1165/mo*)</div>
-          <ul class="features">
-            <li><span class="highlight">₹750 Off</span> applied</li>
-            <li>2 Free PT Sessions</li>
-            <li>30 Days Membership Pause</li>
-            <li>₹500 OFF on Activewear</li>
-            <li>50 ELITE Credits</li>
-            <li>Transfer within 45 Days</li>
-          </ul>
-          <button class="buy-btn">BUY NOW</button>
-        </div>
-        <div class="plan-card">
-          <div class="badge">Best Value</div>
-          <h2>12 MONTHS</h2>
-          <div class="original-price">₹22,000</div>
-          <div class="price">₹8,990</div>
-          <div class="price-note">+ ₹1759 Taxes & Fees (₹749/mo*)</div>
-          <ul class="features">
-            <li><span class="highlight">₹1,000 Off</span> applied</li>
-            <li>2 Free PT Sessions</li>
-            <li>60 Days Membership Pause</li>
-            <li>₹500 OFF on Activewear</li>
-            <li>100 ELITE Credits</li>
-            <li>Transfer within 90 Days</li>
-          </ul>
-          <button class="buy-btn">BUY NOW</button>
+  <!-- Wrap the entire page content in #mainContent so the blur can be applied safely -->
+  <div id="mainContent">
+    <div class="hero-section">
+      <nav>
+        <div class="logo">
+          <img src="./../images/anytime-fitness-logo.png" alt="logo-img">
         </div>
 
-      </div>
-    </div>
-  </section>
+        <!-- Hamburger -->
+        <button class="hamburger" id="hamburgerBtn" aria-label="Open menu">☰</button>
 
-  <!-- Footer Section -->
-  <footer class="footer">
-    <div class="footer-container">
-      <div class="footer-logo">
-        <img src="./../images/anytime-fitness-logo.png" alt="Fitness Logo">
-        <p>Your Journey, Our Commitment</p>
-
-        <!-- WhatsApp Join Community -->
-        <div class="whatsapp-link">
-          <a href="https://chat.whatsapp.com/your-group-link" target="_blank">
-            <img src="./../images/whatsapp.png" alt="WhatsApp"> Join Our Community
-          </a>
-        </div>
-      </div>
-
-      <div class="footer-links">
-        <h4>Quick Links</h4>
-        <ul>
-          <li><a href="./index.html">Home</a></li>
-          <li><a href="./page/workout.html">Workout</a></li>
-          <li><a href="./page/plan.html">Plan</a></li>
-          <li><a href="./page/healthy.html">Healthy Living</a></li>
-          <li><a href="./page/trainer.html">Personal Trainer</a></li>
-          <li><a href="./page/nutrition.html">Nutrition</a></li>
+        <!-- Desktop nav -->
+        <ul class="nav-links">
+          <li><a href="./../index.html">Home</a></li>
+          <li><a href="./../page/workout.html">Workout</a></li>
+          <li><a href="./../page/plan.html">Plan</a></li>
+          <li><a href="./../page/healthy.html">Healthy Living</a></li>
+          <li><a href="./../page/trainer.html">Personal Trainer</a></li>
+          <li><a href="./../page/nutrition.html">Nutrition</a></li>
         </ul>
+
+        <a href="#" class="button">Try Us For Free</a>
+      </nav>
+
+      <!-- Mobile Sidebar -->
+      <div class="sidebar" id="mobileSidebar">
+        <button class="close-btn" id="closeSidebar">&times;</button>
+        <ul>
+          <li><a href="./../index.html">Home</a></li>
+          <li><a href="./../page/workout.html">Workout</a></li>
+          <li><a href="./../page/plan.html">Plan</a></li>
+          <li><a href="./../page/healthy.html">Healthy Living</a></li>
+          <li><a href="./../page/trainer.html">Personal Trainer</a></li>
+          <li><a href="./../page/nutrition.html">Nutrition</a></li>
+        </ul>
+        <a href="#" class="sidebar-btn">Try Us For Free</a>
       </div>
 
-      <div class="footer-contact">
-        <h4>Contact Us</h4>
-        <p>Email: info@fitnesshub.com</p>
-        <p>Phone: +91 98765 43210</p>
-        <div class="social-icons">
-          <a href="#"><img src="./../images/facebook.png" alt="Facebook"></a>
-          <a href="#"><img src="./../images/instagram.png" alt="Instagram"></a>
-          <a href="#"><img src="./../images/twitter.png" alt="Twitter"></a>
+      <section class="program-section" id="program">
+        <h1 class="heading">Plan's <span>how to get a perfect plan</span></h1>
+        <div class="program-row">
+          <div class="program-content">
+            <h3 class="title">Your Journey Starts With A Plan</h3>
+            <p>
+              Whether you're aiming to lose weight, gain muscle, or just feel better, selecting the right program is
+              essential.
+              Our platform makes it easy with personalized, expert-backed plans to keep you motivated and on track.
+            </p>
+            <div class="steps-box">
+              <div class="step-card">
+                <img src="./../images/trainer.png" alt="Step 1" />
+                <h3>Step 1</h3>
+                <p>Choose your goal (weight loss, gain, fitness)</p>
+              </div>
+              <div class="step-card">
+                <img src="./../images/nutrition.png" alt="Step 2" />
+                <h3>Step 2</h3>
+                <p>Select the plan duration: 1, 3, or 6 months</p>
+              </div>
+              <div class="step-card">
+                <img src="./../images/community.png" alt="Step 3" />
+                <h3>Step 3</h3>
+                <p>Join & start training with our expert team</p>
+              </div>
+            </div>
+          </div>
+          <div class="program-image">
+            <img src="./../images/program-side2.jpg" alt="Perfect Plan" />
+          </div>
         </div>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>© 2025 Anytime Fitness. All Rights Reserved.</p>
-    </div>
-  </footer>
+      </section>
 
+      <!-- Weight Loss Plans -->
+      <section class="plans-section">
+        <h2>Choose Your Weight Loss Plan</h2>
+        <div class="card-container">
+          <div class="plan-card">
+            <img src="./../images/weightloss1.jpg" alt="1 Month Plan">
+            <div class="plan-content">
+              <div class="plan-title">1 Month Plan</div>
+              <div class="plan-desc">Quick start with personalized diet & workouts to kick off your journey.</div>
+              <a href="#" class="pay-btn">Get Plan</a>
+            </div>
+          </div>
+          <div class="plan-card">
+            <img src="./../images/weightloss2.jpg" alt="3 Month Plan">
+            <div class="plan-content">
+              <div class="plan-title">3 Month Plan</div>
+              <div class="plan-desc">Balanced approach with sustainable results and expert guidance.</div>
+              <a href="#" class="pay-btn">Get Plan</a>
+            </div>
+          </div>
+          <div class="plan-card">
+            <img src="./../images/weightloss3.jpg" alt="6 Month Plan">
+            <div class="plan-content">
+              <div class="plan-title">6 Month Plan</div>
+              <div class="plan-desc">Complete transformation with long-term support and weekly tracking.</div>
+              <a href="#" class="pay-btn">Get Plan</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Weight Gain Plans -->
+      <section class="plans-section">
+        <h2>Choose Your Weight Gain Plan</h2>
+        <div class="card-container">
+          <div class="plan-card">
+            <img src="./../images/weightgain1.jpg" alt="1 Month Gain Plan">
+            <div class="plan-content">
+              <div class="plan-title">1 Month Plan</div>
+              <div class="plan-desc">Kickstart muscle growth with targeted nutrition and training support.</div>
+              <a href="#" class="pay-btn">Get Plan</a>
+            </div>
+          </div>
+          <div class="plan-card">
+            <img src="./../images/weightgain2.jpg" alt="3 Month Gain Plan">
+            <div class="plan-content">
+              <div class="plan-title">3 Month Plan</div>
+              <div class="plan-desc">Build strength with structured workouts and expert advice.</div>
+              <a href="#" class="pay-btn">Get Plan</a>
+            </div>
+          </div>
+          <div class="plan-card">
+            <img src="./../images/weightgain3.jpg" alt="6 Month Gain Plan">
+            <div class="plan-content">
+              <div class="plan-title">6 Month Plan</div>
+              <div class="plan-desc">Sustainable bulk-up plan with full-time coaching and assessments.</div>
+              <a href="#" class="pay-btn">Get Plan</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="plan-section">
+        <div class="container">
+          <h1 class="section-title">Choose Your Fitness Plan Workout + Nutrition</h1>
+          <div class="plans-container">
+            <div class="plan-card">
+              <div class="badge">Starter</div>
+              <h2>3 MONTHS</h2>
+              <div class="original-price">₹9,097</div>
+              <div class="price">₹5,490</div>
+              <div class="price-note">+ ₹1070 Taxes & Fees (₹1830/mo*)</div>
+              <ul class="features">
+                <li><span class="highlight">₹500 Off</span> applied</li>
+                <li>2 Free PT Sessions</li>
+                <li>10 Days Membership Pause</li>
+                <li>₹500 OFF on Activewear</li>
+                <li>30 ELITE Credits</li>
+                <li>Transfer within 15 Days</li>
+              </ul>
+              <button class="buy-btn">BUY NOW</button>
+            </div>
+            <div class="plan-card">
+              <div class="badge">Most Popular</div>
+              <h2>6 MONTHS</h2>
+              <div class="original-price">₹12,000</div>
+              <div class="price">₹6,990</div>
+              <div class="price-note">+ ₹1364 Taxes & Fees (₹1165/mo*)</div>
+              <ul class="features">
+                <li><span class="highlight">₹750 Off</span> applied</li>
+                <li>2 Free PT Sessions</li>
+                <li>30 Days Membership Pause</li>
+                <li>₹500 OFF on Activewear</li>
+                <li>50 ELITE Credits</li>
+                <li>Transfer within 45 Days</li>
+              </ul>
+              <button class="buy-btn">BUY NOW</button>
+            </div>
+            <div class="plan-card">
+              <div class="badge">Best Value</div>
+              <h2>12 MONTHS</h2>
+              <div class="original-price">₹22,000</div>
+              <div class="price">₹8,990</div>
+              <div class="price-note">+ ₹1759 Taxes & Fees (₹749/mo*)</div>
+              <ul class="features">
+                <li><span class="highlight">₹1,000 Off</span> applied</li>
+                <li>2 Free PT Sessions</li>
+                <li>60 Days Membership Pause</li>
+                <li>₹500 OFF on Activewear</li>
+                <li>100 ELITE Credits</li>
+                <li>Transfer within 90 Days</li>
+              </ul>
+              <button class="buy-btn">BUY NOW</button>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- Footer Section -->
+      <footer class="footer">
+        <div class="footer-container">
+          <div class="footer-logo">
+            <img src="./../images/anytime-fitness-logo.png" alt="Fitness Logo">
+            <p>Your Journey, Our Commitment</p>
+
+            <!-- WhatsApp Join Community -->
+            <div class="whatsapp-link">
+              <a href="https://chat.whatsapp.com/your-group-link" target="_blank">
+                <img src="./../images/whatsapp.png" alt="WhatsApp"> Join Our Community
+              </a>
+            </div>
+          </div>
+
+          <div class="footer-links">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="./index.html">Home</a></li>
+              <li><a href="./page/workout.html">Workout</a></li>
+              <li><a href="./page/plan.html">Plan</a></li>
+              <li><a href="./page/healthy.html">Healthy Living</a></li>
+              <li><a href="./page/trainer.html">Personal Trainer</a></li>
+              <li><a href="./page/nutrition.html">Nutrition</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-contact">
+            <h4>Contact Us</h4>
+            <p>Email: info@fitnesshub.com</p>
+            <p>Phone: +91 98765 43210</p>
+            <div class="social-icons">
+              <a href="#"><img src="./../images/facebook.png" alt="Facebook"></a>
+              <a href="#"><img src="./../images/instagram.png" alt="Instagram"></a>
+              <a href="#"><img src="./../images/twitter.png" alt="Twitter"></a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>© 2025 Anytime Fitness. All Rights Reserved.</p>
+        </div>
+      </footer>
+      <script>
+        /* ---------- Sidebar / Hamburger (your original behavior preserved) ---------- */
+        const hamburger = document.getElementById('hamburgerBtn');
+        const sidebar = document.getElementById('mobileSidebar');
+        const closeSidebar = document.getElementById('closeSidebar');
+
+        if (hamburger && sidebar) {
+          hamburger.addEventListener('click', () => {
+            sidebar.classList.add('active');
+          });
+        }
+        if (closeSidebar && sidebar) {
+          closeSidebar.addEventListener('click', () => {
+            sidebar.classList.remove('active');
+          });
+        }
+
+        // Close sidebar when clicking a link
+        if (sidebar) {
+          sidebar.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', (e) => {
+              // allow links to navigate if they are external pages; but close sidebar anyway
+              sidebar.classList.remove('active');
+            });
+          });
+        }
+      </script>
 </body>
 
 </html>
